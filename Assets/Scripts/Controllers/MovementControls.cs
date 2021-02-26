@@ -30,7 +30,7 @@ public class MovementControls : MonoBehaviour
     private Vector3 velocity = new Vector3(0, 0, 0);
 
     [Header("Debugging")]
-    [SerializeField]private Material grounded;
+    [SerializeField]private Material grounded = null;
     [SerializeField]private Material air;
     [SerializeField]private MeshRenderer meshRenderer;
 
