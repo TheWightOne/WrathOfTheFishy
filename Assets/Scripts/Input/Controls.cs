@@ -33,6 +33,22 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Sprint"",
+                    ""type"": ""Button"",
+                    ""id"": ""6e5c2ff1-ce76-4eff-8686-040bd56224b5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""cde9a80f-6553-415d-9267-5b17eb2fcb4d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=0.6,pressPoint=0.7)""
                 }
             ],
             ""bindings"": [
@@ -101,6 +117,28 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3993f50b-03ec-4b2d-9882-f152dcc81276"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""296f8b0f-99a9-44cd-b50d-04f967877e4f"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -111,6 +149,8 @@ public class @Controls : IInputActionCollection, IDisposable
         m_General = asset.FindActionMap("General", throwIfNotFound: true);
         m_General_Movement = m_General.FindAction("Movement", throwIfNotFound: true);
         m_General_Look = m_General.FindAction("Look", throwIfNotFound: true);
+        m_General_Sprint = m_General.FindAction("Sprint", throwIfNotFound: true);
+        m_General_Attack = m_General.FindAction("Attack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -162,12 +202,16 @@ public class @Controls : IInputActionCollection, IDisposable
     private IGeneralActions m_GeneralActionsCallbackInterface;
     private readonly InputAction m_General_Movement;
     private readonly InputAction m_General_Look;
+    private readonly InputAction m_General_Sprint;
+    private readonly InputAction m_General_Attack;
     public struct GeneralActions
     {
         private @Controls m_Wrapper;
         public GeneralActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_General_Movement;
         public InputAction @Look => m_Wrapper.m_General_Look;
+        public InputAction @Sprint => m_Wrapper.m_General_Sprint;
+        public InputAction @Attack => m_Wrapper.m_General_Attack;
         public InputActionMap Get() { return m_Wrapper.m_General; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -183,6 +227,12 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Look.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnLook;
+                @Sprint.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSprint;
+                @Sprint.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSprint;
+                @Sprint.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSprint;
+                @Attack.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnAttack;
             }
             m_Wrapper.m_GeneralActionsCallbackInterface = instance;
             if (instance != null)
@@ -193,6 +243,12 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
+                @Sprint.started += instance.OnSprint;
+                @Sprint.performed += instance.OnSprint;
+                @Sprint.canceled += instance.OnSprint;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
             }
         }
     }
@@ -201,5 +257,7 @@ public class @Controls : IInputActionCollection, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnSprint(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
     }
 }

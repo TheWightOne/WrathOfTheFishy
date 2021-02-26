@@ -6,16 +6,25 @@ public class MovementControls : MonoBehaviour
 {
     private Controls controls;
     private Vector2 movementInput;
+    private bool sprintInput;
 
     [SerializeField]private CharacterController characterController = null;
     [SerializeField]private Transform cam = null;
+    //the current speed the player should move
+    private float currentSpeed = 0;
+
+    //the default non-print speed
     [SerializeField]private float speed = 6f;
+
+    //the sprint speed
+    [SerializeField]private float sprintSpeed = 12f;
     [SerializeField]private float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
 
     [SerializeField]private float gravity = -9.81f;
     [SerializeField]private Transform groundCheck = null;
-    [SerializeField]private float groundDistance = 0f;
+    //radius of the ground check sphere
+    [SerializeField]private float groundDistance = 2f;
     [SerializeField]private LayerMask groundMask;
     private bool isGrounded= false;
     private Vector3 velocity = new Vector3(0, 0, 0);
@@ -31,6 +40,15 @@ public class MovementControls : MonoBehaviour
     {
         controls = new Controls();
         controls.General.Movement.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
+        controls.General.Sprint.performed += ctx => 
+        {
+            meshRenderer.material = grounded;
+            currentSpeed = sprintSpeed;   
+        };
+        controls.General.Sprint.canceled += _ => {
+            meshRenderer.material = air;
+            currentSpeed = speed;
+        };
     }
 
     #region - Enable/Disable -
@@ -44,17 +62,24 @@ public class MovementControls : MonoBehaviour
 
     #endregion
 
+
+    void Start(){
+        currentSpeed = speed;
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
         //checks if the player is grounded. if so, reset fall velocity
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
+        
         if(isGrounded && velocity.y < 0){
-            meshRenderer.material = grounded;
+            //is grounded
+            
             velocity.y = -.2f * Time.deltaTime * Time.deltaTime;
         }else{
-            meshRenderer.material = air;
+            //is in air
+            
             velocity.y += gravity * Time.deltaTime * Time.deltaTime;
         }
 
@@ -76,7 +101,7 @@ public class MovementControls : MonoBehaviour
 
         Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;        
 
-        characterController.Move(moveDir.normalized * speed * Time.deltaTime);
+        characterController.Move(moveDir.normalized * currentSpeed * Time.deltaTime);
 
         velocity.y += gravity * Time.deltaTime * Time.deltaTime;
         characterController.Move(velocity);
