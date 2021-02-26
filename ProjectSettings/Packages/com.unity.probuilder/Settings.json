@@ -109,6 +109,14 @@
                 "value": "{\"m_Value\":{\"instanceID\":0}}"
             },
             {
+<<<<<<< HEAD
+=======
+                "type": "UnityEditor.StaticEditorFlags, UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "key": "mesh.defaultStaticEditorFlags",
+                "value": "{\"m_Value\":0}"
+            },
+            {
+>>>>>>> 15261fb5d79ddea7a4ab385685c902581e36c550
                 "type": "UnityEngine.ProBuilder.ColliderType, Unity.ProBuilder, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "mesh.newShapeColliderType",
                 "value": "{\"m_Value\":2}"
