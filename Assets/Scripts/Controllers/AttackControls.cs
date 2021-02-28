@@ -6,15 +6,12 @@ using UnityEngine.InputSystem;
 public class AttackControls : MonoBehaviour
 {
     private Controls controls;
+    [SerializeField]private Animator animator = null;
 
     bool isAttacking = false;
 
 
-    [Header("Debugging")]
-    private Material defaultMaterial;
-    [SerializeField] private Material weakMat = null;
-    [SerializeField]private Material strongMat = null;
-    [SerializeField]private MeshRenderer meshRenderer = null;
+    
 
 
     #region - Enable/Disable -  
@@ -43,28 +40,19 @@ public class AttackControls : MonoBehaviour
         if(isAttacking){
             return;
         }
-        StartCoroutine(MaterialSwapCoroutine(weakMat, 1));
+        Debug.Log("attacking");
+        animator.SetTrigger("Attack");
+        //StartCoroutine(MaterialSwapCoroutine(weakMat, 1));
     }
 
     private void StrongAttack(){
         if(isAttacking){
             return;
         }
-        StartCoroutine(MaterialSwapCoroutine(strongMat, 1));
+        //StartCoroutine(MaterialSwapCoroutine(strongMat, 1));
     }
 
-    private IEnumerator MaterialSwapCoroutine(Material material, float seconds){
-        isAttacking = true;
-        meshRenderer.material = material;
-        yield return new WaitForSeconds(seconds);
-        meshRenderer.material = defaultMaterial;
-        isAttacking = false;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        defaultMaterial = meshRenderer.material;
-    }
+    
 
     
 }

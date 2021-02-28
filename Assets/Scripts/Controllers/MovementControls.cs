@@ -29,6 +29,8 @@ public class MovementControls : MonoBehaviour
     private bool isGrounded= false;
     private Vector3 velocity = new Vector3(0, 0, 0);
 
+    [SerializeField]private Animator animator = null;
+
     [Header("Debugging")]
     [SerializeField]private Material grounded = null;
     [SerializeField]private Material air;
@@ -39,13 +41,18 @@ public class MovementControls : MonoBehaviour
     void Awake()
     {
         controls = new Controls();
-        controls.General.Movement.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
+        controls.General.Movement.performed += ctx =>{
+            movementInput = ctx.ReadValue<Vector2>();
+
+        }; 
         controls.General.Sprint.performed += ctx => 
         {
+            animator.SetBool("sprinting", true);
             meshRenderer.material = grounded;
             currentSpeed = sprintSpeed;   
         };
         controls.General.Sprint.canceled += _ => {
+            animator.SetBool("sprinting", false);
             meshRenderer.material = air;
             currentSpeed = speed;
         };
@@ -90,9 +97,16 @@ public class MovementControls : MonoBehaviour
         //input by the player
         Vector3 moveVector = new Vector3(movementInput.x, 0, movementInput.y);
 
+        animator.SetFloat("speed", moveVector.sqrMagnitude);
+        //Debug.Log(moveVector.sqrMagnitude);
+
         if(moveVector.sqrMagnitude <= 0.1f){
             return;
         }
+
+        
+
+        
       
         
         float targetAngle = Mathf.Atan2(moveVector.x, moveVector.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
