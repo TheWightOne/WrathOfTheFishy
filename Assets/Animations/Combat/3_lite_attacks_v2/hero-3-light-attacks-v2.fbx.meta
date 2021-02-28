@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 880bc07cf5300f84fbfae41340da1729
+guid: 702f6b731d0455748a0e6ab6b9a7cf8a
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
       74: -623603649343465320
-    second: light-attack-1
+    second: light_attack_1
   - first:
-      74: -6417678970696991957
-    second: light-attack-2
+      74: -718409121707850650
+    second: light_attack_2
   - first:
-      74: 120103551309344619
-    second: light-attack-3
+      74: 1079024310401884181
+    second: light_attack_3
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -41,11 +41,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: light-attack-1
+      name: light_attack_1
       takeName: Scene
       internalID: 0
       firstFrame: 1
-      lastFrame: 22
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -70,11 +70,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 1
     - serializedVersion: 16
-      name: light-attack-2
+      name: light_attack_2
       takeName: Scene
       internalID: 0
-      firstFrame: 23
-      lastFrame: 38
+      firstFrame: 21
+      lastFrame: 39
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -99,11 +99,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 1
     - serializedVersion: 16
-      name: light-attack-3
+      name: light_attack_3
       takeName: Scene
       internalID: 0
-      firstFrame: 39
-      lastFrame: 65
+      firstFrame: 40
+      lastFrame: 71
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
