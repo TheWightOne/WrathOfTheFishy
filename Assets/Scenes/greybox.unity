@@ -203,6 +203,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sea (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4111954169509894129, guid: 09ad44c588485184d9503a92eb1286ca, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e16b235fdb796fe45ad1d0f5b1fd2fe9, type: 2}
     - target: {fileID: 4111954169509894131, guid: 09ad44c588485184d9503a92eb1286ca, type: 3}
       propertyPath: m_RootOrder
       value: 101
@@ -1159,7 +1163,6 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!4 &521009091
@@ -1630,7 +1633,6 @@ MonoBehaviour:
   m_StopNaN: 0
   m_Dithering: 0
   m_ClearDepth: 1
-  m_AllowXRRendering: 1
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
@@ -3695,6 +3697,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1809744701598380915, guid: 61127ca7194237a4aadef0afc703783b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e16b235fdb796fe45ad1d0f5b1fd2fe9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61127ca7194237a4aadef0afc703783b, type: 3}
 --- !u!1001 &1804928915
@@ -4908,6 +4914,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sea (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4111954169509894129, guid: 09ad44c588485184d9503a92eb1286ca, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e16b235fdb796fe45ad1d0f5b1fd2fe9, type: 2}
     - target: {fileID: 4111954169509894131, guid: 09ad44c588485184d9503a92eb1286ca, type: 3}
       propertyPath: m_RootOrder
       value: 102
