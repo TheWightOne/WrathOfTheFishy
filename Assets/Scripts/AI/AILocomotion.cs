@@ -14,9 +14,9 @@ public class AILocomotion : MonoBehaviour
     private NavMeshAgent agent;
     private Animator animator;
 
-    [SerializeField] private float maxTime;
+    [SerializeField] private float maxTime = 1;
     float timer = 0.0f;
-    [SerializeField] private float minDistance;
+    [SerializeField] private float minDistance = 2;
     // Start is called before the first frame update
     void Start()
     {

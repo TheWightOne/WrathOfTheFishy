@@ -25,16 +25,14 @@ public class MovementControls : MonoBehaviour
     [SerializeField]private Transform groundCheck = null;
     //radius of the ground check sphere
     [SerializeField]private float groundDistance = 2f;
-    [SerializeField]private LayerMask groundMask;
+    [SerializeField]private LayerMask groundMask = 0;
     private bool isGrounded= false;
     private Vector3 velocity = new Vector3(0, 0, 0);
 
     [SerializeField]private Animator animator = null;
 
-    [Header("Debugging")]
-    [SerializeField]private Material grounded = null;
-    [SerializeField]private Material air;
-    [SerializeField]private MeshRenderer meshRenderer;
+
+    
 
 
     // Start is called before the first frame update
@@ -48,12 +46,12 @@ public class MovementControls : MonoBehaviour
         controls.General.Sprint.performed += ctx => 
         {
             animator.SetBool("sprinting", true);
-            meshRenderer.material = grounded;
+            
             currentSpeed = sprintSpeed;   
         };
         controls.General.Sprint.canceled += _ => {
             animator.SetBool("sprinting", false);
-            meshRenderer.material = air;
+            
             currentSpeed = speed;
         };
     }
