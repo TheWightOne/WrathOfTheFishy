@@ -500,7 +500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7200ad39db50fad45a5961f54fa2b565, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0183251
+      value: 0.91832507
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7200ad39db50fad45a5961f54fa2b565, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2729,6 +2729,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 55
+  flightVelocity: 100
   animator: {fileID: 5866666021275464365}
 --- !u!143 &718080518
 CharacterController:
@@ -2827,7 +2828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 702f6b731d0455748a0e6ab6b9a7cf8a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 702f6b731d0455748a0e6ab6b9a7cf8a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7101,7 +7102,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148037903862}
   m_LocalRotation: {x: 0.16913071, y: -0.047255795, z: -0.03903622, w: 0.9836859}
-  m_LocalPosition: {x: 0.549088, y: 0.9575019, z: 0.60936624}
+  m_LocalPosition: {x: 0.549088, y: 0.85750186, z: 0.60936624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 718080516}
@@ -8968,7 +8969,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &7784243977356639494
 MonoBehaviour:
   m_ObjectHideFlags: 0

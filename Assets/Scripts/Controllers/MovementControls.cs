@@ -27,6 +27,8 @@ public class MovementControls : MonoBehaviour
     [SerializeField]private float groundDistance = 2f;
     [SerializeField]private LayerMask groundMask = 0;
     private bool isGrounded= false;
+    private bool flying = false;
+    [SerializeField]private float flightVelocity = 0f;
     private Vector3 velocity = new Vector3(0, 0, 0);
 
     [SerializeField]private Animator animator = null;
@@ -54,6 +56,13 @@ public class MovementControls : MonoBehaviour
             
             currentSpeed = speed;
         };
+        controls.General.Fly.performed += _ =>{
+            Debug.Log("hit fly button!");
+            flying = true;
+        };
+        controls.General.Fly.canceled += _ =>{
+            flying = false;
+        };
     }
 
     #region - Enable/Disable -
@@ -77,8 +86,9 @@ public class MovementControls : MonoBehaviour
         //checks if the player is grounded. if so, reset fall velocity
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        
-        if(isGrounded && velocity.y < 0){
+        if(flying){
+            velocity.y = flightVelocity * Time.deltaTime *Time.deltaTime;
+        }else if(isGrounded && velocity.y < 0){
             //is grounded
             
             velocity.y = -.2f * Time.deltaTime * Time.deltaTime;
