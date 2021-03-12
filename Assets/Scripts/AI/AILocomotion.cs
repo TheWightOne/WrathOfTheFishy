@@ -5,18 +5,12 @@ using UnityEngine.AI;
 
 public class AILocomotion : MonoBehaviour
 {
-    [SerializeField]private Transform playerTransform = null;
-    public Transform PlayerTransform{
-        set{
-            playerTransform = value;
-        }
-    }
+    
+    
     private NavMeshAgent agent;
     private Animator animator;
 
-    [SerializeField] private float maxTime = 1;
-    float timer = 0.0f;
-    [SerializeField] private float minDistance = 2;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -27,16 +21,12 @@ public class AILocomotion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
-        if(timer < 0.0f){
-            float distance = (playerTransform.position - agent.destination).sqrMagnitude;
-            if(distance > minDistance*minDistance){
-                agent.destination = playerTransform.position;
-            }
-            timer = maxTime;
-            
+        if(agent.hasPath){
+            animator.SetFloat("Speed", agent.velocity.magnitude);
+        }else{
+            animator.SetFloat("Speed", 0);
         }
         
-        animator.SetFloat("Speed",agent.velocity.magnitude);
+        
     }
 }

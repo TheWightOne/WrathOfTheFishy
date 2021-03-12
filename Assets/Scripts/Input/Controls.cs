@@ -43,6 +43,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": ""Hold(duration=0.6,pressPoint=0.7)""
                 },
                 {
+                    ""name"": ""Block"",
+                    ""type"": ""Button"",
+                    ""id"": ""3e8eb97f-7632-45f3-953a-cadcde4dda45"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""Fly"",
                     ""type"": ""Button"",
                     ""id"": ""cfe628dd-135a-4744-bae6-1cf92cfa6a56"",
@@ -194,6 +202,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Fly"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e224355b-572c-4e84-8365-78b5c9e55437"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Block"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -232,6 +251,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_General_Movement = m_General.FindAction("Movement", throwIfNotFound: true);
         m_General_Sprint = m_General.FindAction("Sprint", throwIfNotFound: true);
         m_General_Attack = m_General.FindAction("Attack", throwIfNotFound: true);
+        m_General_Block = m_General.FindAction("Block", throwIfNotFound: true);
         m_General_Fly = m_General.FindAction("Fly", throwIfNotFound: true);
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
@@ -288,6 +308,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_General_Movement;
     private readonly InputAction m_General_Sprint;
     private readonly InputAction m_General_Attack;
+    private readonly InputAction m_General_Block;
     private readonly InputAction m_General_Fly;
     public struct GeneralActions
     {
@@ -296,6 +317,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Movement => m_Wrapper.m_General_Movement;
         public InputAction @Sprint => m_Wrapper.m_General_Sprint;
         public InputAction @Attack => m_Wrapper.m_General_Attack;
+        public InputAction @Block => m_Wrapper.m_General_Block;
         public InputAction @Fly => m_Wrapper.m_General_Fly;
         public InputActionMap Get() { return m_Wrapper.m_General; }
         public void Enable() { Get().Enable(); }
@@ -315,6 +337,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Attack.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnAttack;
+                @Block.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnBlock;
+                @Block.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnBlock;
+                @Block.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnBlock;
                 @Fly.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnFly;
                 @Fly.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnFly;
                 @Fly.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnFly;
@@ -331,6 +356,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @Block.started += instance.OnBlock;
+                @Block.performed += instance.OnBlock;
+                @Block.canceled += instance.OnBlock;
                 @Fly.started += instance.OnFly;
                 @Fly.performed += instance.OnFly;
                 @Fly.canceled += instance.OnFly;
@@ -376,6 +404,7 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnBlock(InputAction.CallbackContext context);
         void OnFly(InputAction.CallbackContext context);
     }
     public interface ICameraActions

@@ -30,6 +30,14 @@
                     "interactions": "Hold(duration=0.6,pressPoint=0.7)"
                 },
                 {
+                    "name": "Block",
+                    "type": "Button",
+                    "id": "3e8eb97f-7632-45f3-953a-cadcde4dda45",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Fly",
                     "type": "Button",
                     "id": "cfe628dd-135a-4744-bae6-1cf92cfa6a56",
@@ -179,6 +187,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Fly",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e224355b-572c-4e84-8365-78b5c9e55437",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Block",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -3,27 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+//this script is in charge of translating the player's input into commands for the character
+//
+[RequireComponent(typeof(CharacterCombat))]
 public class AttackControls : MonoBehaviour
 {
     private Controls controls;
-
-
-    [SerializeField]private float attackDamage = 5;
     
-    
-
     [Header("Unity Setup Values")]
-    [SerializeField]private Animator animator = null;
-    [SerializeField]private Transform attackPoint = null;
-    [SerializeField]private float attackRangeX = 0.5f;
-    [SerializeField]private float attackRangeY = 0.5f;
-    [SerializeField]private float attackRangeZ = 0.5f;
-    [SerializeField]private LayerMask enemyLayers = 0;
-    [SerializeField]private GameObject hitParticles = null;
-
+    
     bool isAttacking = false;
+
+    //this bool tracks when the player's
+    //input has been used to perform their attack
+    //this prevents multiple attacks with a single click
     bool attackedWithInput = false;
-    private int liteAttackCount = 0;
+    
+    private CharacterCombat characterCombat = null;
 
 
     #region - Enable/Disable -  
@@ -37,32 +33,41 @@ public class AttackControls : MonoBehaviour
 
     #endregion
 
+    void Reset(){
+        characterCombat = GetComponent<CharacterCombat>();
+    }
+
     void Awake(){
+        if(!characterCombat){
+            characterCombat = GetComponent<CharacterCombat>();
+        }
         controls = new Controls();
         controls.General.Attack.started += _ => {
             attackedWithInput = false;
         };
         controls.General.Attack.performed += _ => {
-            StrongAttack();
+            if(isAttacking || attackedWithInput){
+                return;
+            }
+            characterCombat.StrongAttack();
             attackedWithInput = true;
         };
         controls.General.Attack.canceled += _ =>{
-            WeakAttack();
+            if(isAttacking || attackedWithInput){
+                return;
+            }
+            characterCombat.WeakAttack();
             attackedWithInput = true;
         };
     }
 
+    /*
     private void WeakAttack(){
-        if(isAttacking || attackedWithInput){
-            return;
-        }
         Debug.Log("weak attack");
-        animator.SetTrigger("Attack");
 
-        liteAttackCount ++;
         animator.SetInteger("lite_attack_count", liteAttackCount);
 
-        Collider[] hitEnemies = Physics.OverlapBox(attackPoint.position, new Vector3(attackRangeX, attackRangeY, attackRangeZ), gameObject.transform.rotation, enemyLayers);
+        Collider[] hitEnemies = Physics.OverlapBox(attackPoint.position, new Vector3(attackRange.x, attackRange.y, attackRange.z), gameObject.transform.rotation, enemyLayers);
 
         foreach(Collider enemy in hitEnemies){
             Debug.Log("We hit " + enemy.name);
@@ -72,22 +77,9 @@ public class AttackControls : MonoBehaviour
         }
     }
 
-    private void StrongAttack(){
-        if(isAttacking || attackedWithInput){
-            return;
-        }
-        Debug.Log("strong attack");
-        liteAttackCount = 0;
-    }
+    */
 
-    void OnDrawGizmosSelected(){
-        if(attackPoint == null){
-            return;
-        }
-        Gizmos.color = Color.red;
-        Gizmos.matrix = attackPoint.transform.localToWorldMatrix;
-        Gizmos.DrawWireCube(Vector3.zero, new Vector3(attackRangeX/2, attackRangeY/2, attackRangeZ/2));
-    }
+    
 
     
 }
