@@ -30,7 +30,7 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
-    [SerializeField]private int attack = 0;
+    [SerializeField]private int attack = 1;
     public int Attack{
         get{
             return attack;

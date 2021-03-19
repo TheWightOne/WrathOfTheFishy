@@ -9,6 +9,7 @@ public class AIAgent : MonoBehaviour
     public AIStateMachine stateMachine;
     public AIStateID initialState;
     public NavMeshAgent navMeshAgent;
+    public AIAgentConfig config;
     
     void Reset(){
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -18,7 +19,10 @@ public class AIAgent : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         stateMachine = new AIStateMachine(this);
+        stateMachine.RegisterState(new AIState_ChasePlayer());
         stateMachine.ChangeState(initialState);
+
+        navMeshAgent.stoppingDistance = config.minDistance;
     }
 
     // Update is called once per frame

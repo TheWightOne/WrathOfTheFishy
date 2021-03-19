@@ -10014,7 +10014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
-  attack: 0
+  attack: 1
   DeathEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -10032,6 +10032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialState: 0
   navMeshAgent: {fileID: 7784243977356639495}
+  config: {fileID: 11400000, guid: 050d23b6b39098842b851f555da2987d, type: 2}
 --- !u!4 &7891101200997994349
 Transform:
   m_ObjectHideFlags: 0

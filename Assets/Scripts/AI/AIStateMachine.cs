@@ -7,6 +7,7 @@ public class AIStateMachine
     public  AIState[] states;
     public AIAgent agent;
     public AIStateID currentState;
+    
 
     public AIStateMachine(AIAgent agent)
     {
