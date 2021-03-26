@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     }
 
     public void QuitGame(){
-        Application.Quit();
         Debug.Log("If this were in-game, you would have quit");
+        Application.Quit();
     }
 }
