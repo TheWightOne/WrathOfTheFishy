@@ -57,6 +57,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""970d8190-f9a4-4e79-8109-3ae720d4ee0f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -213,6 +221,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Block"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4150448a-53d9-4390-bd55-8055da1bee96"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -253,6 +272,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_General_Attack = m_General.FindAction("Attack", throwIfNotFound: true);
         m_General_Block = m_General.FindAction("Block", throwIfNotFound: true);
         m_General_Fly = m_General.FindAction("Fly", throwIfNotFound: true);
+        m_General_Interact = m_General.FindAction("Interact", throwIfNotFound: true);
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_Look = m_Camera.FindAction("Look", throwIfNotFound: true);
@@ -310,6 +330,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_General_Attack;
     private readonly InputAction m_General_Block;
     private readonly InputAction m_General_Fly;
+    private readonly InputAction m_General_Interact;
     public struct GeneralActions
     {
         private @Controls m_Wrapper;
@@ -319,6 +340,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Attack => m_Wrapper.m_General_Attack;
         public InputAction @Block => m_Wrapper.m_General_Block;
         public InputAction @Fly => m_Wrapper.m_General_Fly;
+        public InputAction @Interact => m_Wrapper.m_General_Interact;
         public InputActionMap Get() { return m_Wrapper.m_General; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -343,6 +365,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Fly.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnFly;
                 @Fly.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnFly;
                 @Fly.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnFly;
+                @Interact.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_GeneralActionsCallbackInterface = instance;
             if (instance != null)
@@ -362,6 +387,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Fly.started += instance.OnFly;
                 @Fly.performed += instance.OnFly;
                 @Fly.canceled += instance.OnFly;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -406,6 +434,7 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnBlock(InputAction.CallbackContext context);
         void OnFly(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
     public interface ICameraActions
     {
