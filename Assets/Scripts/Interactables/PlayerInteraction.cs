@@ -8,8 +8,15 @@ public class PlayerInteraction : MonoBehaviour
     public static PlayerInteraction instance;
     private Interactable interactable = null;
 
+    [Header("UI Elements")]
+
     public GameObject textPanel = null;
+    
     [HideInInspector]public TextMeshProUGUI text = null;
+
+    public AbilitySelectionPanel abilitySelectionPanel = null;
+
+
 
     public Interactable Interactable{
         get{
