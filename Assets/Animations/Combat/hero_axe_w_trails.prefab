@@ -14593,7 +14593,7 @@ ParentConstraint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134531601682600570}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Weight: 1
   m_TranslationAtRest: {x: -8.772, y: 3.7549996, z: -3.2419996}
   m_RotationAtRest: {x: -90, y: 0, z: 0}
@@ -14633,19 +14633,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f49afcfd485624445a2b723a06dcd0c6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f49afcfd485624445a2b723a06dcd0c6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.00000026481646
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f49afcfd485624445a2b723a06dcd0c6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.00000026481646
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f49afcfd485624445a2b723a06dcd0c6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f49afcfd485624445a2b723a06dcd0c6, type: 3}
       propertyPath: m_RootOrder
