@@ -65,6 +65,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""19b0016c-db28-4dc5-ba94-d6c1a2afce9a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -202,17 +210,6 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9bba1f6d-07b7-4679-8914-0495702e2bfd"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Fly"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""e224355b-572c-4e84-8365-78b5c9e55437"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
@@ -230,6 +227,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d64ac768-924b-4df5-b465-95ebae5537e2"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -273,6 +281,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_General_Block = m_General.FindAction("Block", throwIfNotFound: true);
         m_General_Fly = m_General.FindAction("Fly", throwIfNotFound: true);
         m_General_Interact = m_General.FindAction("Interact", throwIfNotFound: true);
+        m_General_Jump = m_General.FindAction("Jump", throwIfNotFound: true);
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_Look = m_Camera.FindAction("Look", throwIfNotFound: true);
@@ -331,6 +340,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_General_Block;
     private readonly InputAction m_General_Fly;
     private readonly InputAction m_General_Interact;
+    private readonly InputAction m_General_Jump;
     public struct GeneralActions
     {
         private @Controls m_Wrapper;
@@ -341,6 +351,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Block => m_Wrapper.m_General_Block;
         public InputAction @Fly => m_Wrapper.m_General_Fly;
         public InputAction @Interact => m_Wrapper.m_General_Interact;
+        public InputAction @Jump => m_Wrapper.m_General_Jump;
         public InputActionMap Get() { return m_Wrapper.m_General; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -368,6 +379,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Interact.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnInteract;
+                @Jump.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnJump;
             }
             m_Wrapper.m_GeneralActionsCallbackInterface = instance;
             if (instance != null)
@@ -390,6 +404,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
             }
         }
     }
@@ -435,6 +452,7 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnBlock(InputAction.CallbackContext context);
         void OnFly(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
     public interface ICameraActions
     {

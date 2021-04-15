@@ -31,10 +31,15 @@ public class MovementControls : MonoBehaviour
     [SerializeField]private float flightVelocity = 0f;
     private Vector3 velocity = new Vector3(0, 0, 0);
 
+    public bool jumping = false;
+
+    [Header("Jump Controls")]
+    [SerializeField]private float jumpForce;
+    [SerializeField]private float maxJumpTime;
+
+
+
     [SerializeField]private Animator animator = null;
-
-
-    
 
 
     // Start is called before the first frame update
@@ -63,7 +68,29 @@ public class MovementControls : MonoBehaviour
         controls.General.Fly.canceled += _ =>{
             flying = false;
         };
+        controls.General.Jump.performed += _ =>{
+            if(jumping){
+                return;
+            }
+            jumpCoroutine = StartCoroutine(Jump());
+        };
+        controls.General.Jump.canceled += _ =>{
+            if(jumpCoroutine != null){
+                Debug.Log("Stopping coroutine because button was released");
+                StopCoroutine(jumpCoroutine);
+                checkingForGrounded = true;
+                if(velocity.y > 0f){
+                    velocity.y = 0;
+                }
+                animator.SetBool("Falling", true);
+            }else{
+                return;
+            }
+        };
     }
+
+    private Coroutine jumpCoroutine = null;
+    private bool checkingForGrounded = false;
 
     #region - Enable/Disable -
     void OnEnable(){
@@ -86,17 +113,6 @@ public class MovementControls : MonoBehaviour
         //checks if the player is grounded. if so, reset fall velocity
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if(flying){
-            velocity.y = flightVelocity * Time.deltaTime *Time.deltaTime;
-        }else if(isGrounded && velocity.y < 0){
-            //is grounded
-            
-            velocity.y = -.2f * Time.deltaTime * Time.deltaTime;
-        }else{
-            //is in air
-            
-            velocity.y += gravity * Time.deltaTime * Time.deltaTime;
-        }
 
 
 
@@ -125,7 +141,40 @@ public class MovementControls : MonoBehaviour
 
         characterController.Move(moveDir.normalized * currentSpeed * Time.deltaTime);
 
-        velocity.y += gravity * Time.deltaTime * Time.deltaTime;
+        
+        if(checkingForGrounded){
+            if(isGrounded){
+                jumping = false;
+                animator.SetBool("Falling", false);
+            }else{
+                velocity.y += gravity * Time.deltaTime * Time.deltaTime;
+            }
+        }
+        
         characterController.Move(velocity);
+    }
+
+
+    public IEnumerator Jump(){
+        checkingForGrounded = false;
+        Debug.Log("starting jump cor");
+        jumping = true;
+        animator.SetTrigger("Jump");
+        float jumpTime = 0f;
+        velocity.y = jumpForce/10;
+        while(jumpTime < maxJumpTime){
+            if(jumpTime > maxJumpTime/2){
+                checkingForGrounded = true;
+            }
+            jumpTime += Time.fixedDeltaTime;
+            velocity.y += gravity * jumpForce * Time.deltaTime *Time.deltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+        Debug.Log("stopping jump cor because of exceeded jump time");
+        if(velocity.y > 0f){
+            velocity.y = 0;
+        }
+        animator.SetBool("Falling", true);
+        jumpCoroutine = null;
     }
 }
