@@ -19,7 +19,8 @@ public class CharacterCombat : MonoBehaviour
     [SerializeField]private GameObject hitParticles = null;
 
     private int liteAttackCount = 0;
-    
+    private float timeSinceLastAttack = 0f;
+
     void Reset(){
         myStats = GetComponent<CharacterStats>();
         animator = GetComponent<Animator>();
@@ -39,7 +40,7 @@ public class CharacterCombat : MonoBehaviour
     }
 
     public void WeakAttack(){
-        Debug.Log("weak attack");
+        //Debug.Log("weak attack");
         animator.SetTrigger("Attack");
 
         liteAttackCount ++;
@@ -52,12 +53,14 @@ public class CharacterCombat : MonoBehaviour
             target.GetComponent<CharacterStats>().CurrentHealth -= myStats.Attack;
             Destroy(Instantiate(hitParticles, new Vector3(target.gameObject.transform.position.x, attackPoint.position.y, target.gameObject.transform.position.z), new Quaternion()), 1.5f);
         }
+
+        timeSinceLastAttack = 0f;
     }
 
     public void StrongAttack(){
         
         Debug.Log("strong attack");
-        liteAttackCount = 0;
+        animator.SetTrigger("Heavy_Attack");
     }
 
     void OnDrawGizmosSelected(){
