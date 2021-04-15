@@ -13,11 +13,20 @@ public class CharacterStats : MonoBehaviour
     }
 
     private int currentHealth;
+
+    public bool perfectTiming = false;
+    public bool blocking = false;
     public int CurrentHealth{
         get{
             return currentHealth;
         }
         set{
+            int targetValue = value;
+            if(perfectTiming){
+                return;
+            }else if(blocking){
+                targetValue = currentHealth - ((currentHealth - targetValue)/2);
+            }
             if(currentHealth < 0){
                 return;
             }

@@ -2962,6 +2962,7 @@ GameObject:
   - component: {fileID: 718080521}
   - component: {fileID: 718080520}
   - component: {fileID: 718080522}
+  - component: {fileID: 718080523}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -3077,6 +3078,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  perfectTiming: 0
+  blocking: 0
   attack: 0
   DeathEvent:
     m_PersistentCalls:
@@ -3096,6 +3099,19 @@ MonoBehaviour:
   textPanel: {fileID: 1028171209}
   text: {fileID: 0}
   abilitySelectionPanel: {fileID: 0}
+--- !u!114 &718080523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718080515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e9df236eefb2164b8b57b988beebd3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5866666021275464365}
 --- !u!1 &768056904
 GameObject:
   m_ObjectHideFlags: 0
@@ -12345,6 +12361,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  perfectTiming: 0
+  blocking: 0
   attack: 1
   DeathEvent:
     m_PersistentCalls:
