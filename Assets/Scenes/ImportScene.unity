@@ -239,6 +239,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_villager_animations_v1
       objectReference: {fileID: 0}
+    - target: {fileID: 6632066722324721660, guid: a0202b27cbd76b4468fa62e8cf36a035, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b9ef7910683489409725b8c0a429513, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0202b27cbd76b4468fa62e8cf36a035, type: 3}
 --- !u!1 &173905319
