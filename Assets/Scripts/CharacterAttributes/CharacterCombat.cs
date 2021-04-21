@@ -11,6 +11,9 @@ public class CharacterCombat : MonoBehaviour
 
     [Header("Unity Setup Variables")]
     [SerializeField]private Animator animator = null;
+    private MovementControls movementControls = null;
+    private AttackControls attackControls = null;
+    [SerializeField]private Cinemachine.CinemachineFreeLook cinemachineFreeLook = null;
     //[SerializeField]private Vector3 attackRange = new Vector3(1,1,1);
     //[SerializeField]private Transform attackPoint = null;
     [SerializeField]private LayerMask enemyLayers = 0;
@@ -20,26 +23,39 @@ public class CharacterCombat : MonoBehaviour
 
     private int liteAttackCount = 0;
     private float timeSinceLastAttack = 0f;
-    private float timeToAttackReset;
+    [SerializeField]private float timeToAttackReset;
 
     void Reset(){
         myStats = GetComponent<CharacterStats>();
         animator = GetComponent<Animator>();
     }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
+
+    void Awake(){
         if(!myStats){
             myStats = GetComponent<CharacterStats>();
+        }if(!movementControls){
+            movementControls = GetComponent<MovementControls>();
+        }if(!attackControls){
+            attackControls = GetComponent<AttackControls>();
+        }if(!cinemachineFreeLook){
+            GameObject possibleCam = GameObject.Find("Third Person Camera");
+            if(possibleCam){
+                cinemachineFreeLook = possibleCam.GetComponent<Cinemachine.CinemachineFreeLook>();
+                if(!cinemachineFreeLook){
+                    Debug.LogWarning("Error: there is no freelook component to disable");
+                }
+            }else{
+                Debug.LogWarning("Error: there is no camera for controls to disable");
+            }
         }
-        
+        myStats.DeathEvent.AddListener(OnDeath);
     }
 
     void Update(){
         timeSinceLastAttack += Time.deltaTime;
         if(timeSinceLastAttack > timeToAttackReset){
             liteAttackCount = 0;
+            animator.SetInteger("lite_attack_count", liteAttackCount);
         }
     }
 
@@ -53,13 +69,14 @@ public class CharacterCombat : MonoBehaviour
 
         liteAttackCount ++;
         animator.SetInteger("lite_attack_count", liteAttackCount);
+        Debug.Log("liteattack up to " + liteAttackCount);
 
         timeSinceLastAttack = 0f;
     }
 
     public void StrongAttack(){
         
-        Debug.Log("strong attack");
+        //Debug.Log("strong attack");
         animator.SetTrigger("Heavy_Attack");
     }
 /*
@@ -95,5 +112,24 @@ public class CharacterCombat : MonoBehaviour
                 Destroy(Instantiate(hitParticles, new Vector3(h.gameObject.transform.position.x, h.transform.position.y + 1, h.transform.gameObject.transform.position.z), new Quaternion()), 1.5f);
             }
         }
+    }
+
+    public void ResetCount(){
+        liteAttackCount = 0;
+    }
+
+    private void OnDeath(){
+        Debug.Log("We died");
+        animator.SetBool("Dead", true);
+        animator.SetTrigger("DeathEvent");
+
+        movementControls.enabled = false;
+        attackControls.enabled = false;
+
+        if(cinemachineFreeLook){
+            cinemachineFreeLook.enabled = false;
+        }
+
+
     }
 }

@@ -49,6 +49,7 @@ public class AttackControls : MonoBehaviour
             if(isAttacking || attackedWithInput){
                 return;
             }
+            Debug.Log("heavy attack");
             characterCombat.StrongAttack();
             attackedWithInput = true;
         };
@@ -56,6 +57,7 @@ public class AttackControls : MonoBehaviour
             if(isAttacking || attackedWithInput){
                 return;
             }
+            Debug.Log("normal attack");
             characterCombat.WeakAttack();
             attackedWithInput = true;
         };

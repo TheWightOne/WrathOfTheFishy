@@ -38,7 +38,9 @@ public class PlayerInteraction : MonoBehaviour
         controls  = new Controls();
 
         controls.General.Interact.performed += _ =>{
-            interactable.Action();
+            if(interactable){
+                interactable.Action();
+            }
         };
         if(textPanel){
             text = textPanel.GetComponentInChildren<TextMeshProUGUI>();

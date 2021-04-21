@@ -76,7 +76,7 @@ public class MovementControls : MonoBehaviour
         };
         controls.General.Jump.canceled += _ =>{
             if(jumpCoroutine != null){
-                Debug.Log("Stopping coroutine because button was released");
+                //Debug.Log("Stopping coroutine because button was released");
                 StopCoroutine(jumpCoroutine);
                 checkingForGrounded = true;
                 if(velocity.y > 0f){
@@ -116,7 +116,7 @@ public class MovementControls : MonoBehaviour
 
 
 
-        characterController.Move(velocity);
+        //characterController.Move(velocity);
 
         //input by the player
         Vector3 moveVector = new Vector3(movementInput.x, 0, movementInput.y);
@@ -147,8 +147,10 @@ public class MovementControls : MonoBehaviour
                 jumping = false;
                 animator.SetBool("Falling", false);
             }else{
-                velocity.y += gravity * Time.deltaTime * Time.deltaTime;
             }
+        }else{
+                velocity.y += gravity * Time.deltaTime * Time.deltaTime;
+
         }
         
         characterController.Move(velocity);
@@ -157,7 +159,7 @@ public class MovementControls : MonoBehaviour
 
     public IEnumerator Jump(){
         checkingForGrounded = false;
-        Debug.Log("starting jump cor");
+        //Debug.Log("starting jump cor");
         jumping = true;
         animator.SetTrigger("Jump");
         float jumpTime = 0f;
@@ -170,7 +172,7 @@ public class MovementControls : MonoBehaviour
             velocity.y += gravity * jumpForce * Time.deltaTime *Time.deltaTime;
             yield return new WaitForFixedUpdate();
         }
-        Debug.Log("stopping jump cor because of exceeded jump time");
+        //Debug.Log("stopping jump cor because of exceeded jump time");
         if(velocity.y > 0f){
             velocity.y = 0;
         }

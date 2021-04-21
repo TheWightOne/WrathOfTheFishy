@@ -16,4 +16,8 @@ public class AttackTriggerHandler : MonoBehaviour
     public void StopDetectingHit(int hitboxIndex){
         combat.DeactivateHitbox(hitboxIndex);
     }
+
+    public void ResetCount(){
+        combat.ResetCount();
+    }
 }

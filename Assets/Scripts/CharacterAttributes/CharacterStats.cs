@@ -30,7 +30,7 @@ public class CharacterStats : MonoBehaviour
             if(currentHealth < 0){
                 return;
             }
-            if(value < 0){
+            if(value <= 0){
                 currentHealth = 0;
                 DeathEvent.Invoke();
             }else{
