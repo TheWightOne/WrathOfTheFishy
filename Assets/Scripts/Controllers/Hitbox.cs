@@ -33,16 +33,21 @@ public class Hitbox : MonoBehaviour
         }
     }
 
-    void OnEnable(){
+    void OnDisable(){
         targetStats.Clear();
         hitStats.Clear();
     }
 
-    public void SetStatsAsHit(List<CharacterStats> hitStats){
-        foreach(CharacterStats cs in hitStats){
+    public void SetStatsAsHit(){
+        foreach(CharacterStats cs in targetStats){
             hitStats.Add(cs);
-            targetStats.Remove(cs);
         }
+        targetStats.Clear();
+    }
+
+    public void ResetHitbox(){
+        targetStats.AddRange(hitStats);
+        hitStats.Clear();
     }
 
 }
