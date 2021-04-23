@@ -65,13 +65,6 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.41098487
-        functionName: DetectHit
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 0.42074928
         functionName: ShowParticles
         data: 
@@ -86,8 +79,8 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.7651515
-        functionName: StopDetectingHit
+      - time: 0
+        functionName: DetectHit
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -122,13 +115,6 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.3693182
-        functionName: DetectHit
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 0.38616714
         functionName: ShowParticles
         data: 
@@ -138,13 +124,6 @@ ModelImporter:
         messageOptions: 0
       - time: 0.7982709
         functionName: HideParticles
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.8087121
-        functionName: StopDetectingHit
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -179,13 +158,6 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.2556818
-        functionName: DetectHit
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 0.2651297
         functionName: ShowParticles
         data: 
@@ -200,15 +172,8 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.5037879
-        functionName: StopDetectingHit
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 1
-        functionName: DetectHit
+        functionName: ResetCount
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

@@ -40,7 +40,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""id"": ""cde9a80f-6553-415d-9267-5b17eb2fcb4d"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Hold(duration=0.8,pressPoint=0.65)""
+                    ""interactions"": ""Hold""
                 },
                 {
                     ""name"": ""Block"",
