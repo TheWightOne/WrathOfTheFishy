@@ -94,12 +94,16 @@ public class CharacterCombat : MonoBehaviour
     [SerializeField]private List<Hitbox> hitboxes;
 
     public void ActivateHitbox(int hitboxIndex){
-        hitboxes[hitboxIndex].enabled = true;
+        //hitboxes[hitboxIndex].enabled = true;
+        DealDamage();
         hitboxes[hitboxIndex].hitDetectedEvent.AddListener(DealDamage);
     }
 
     public void DeactivateHitbox(int hitboxIndex){
-        hitboxes[hitboxIndex].enabled = false;
+        Hitbox hitbox = hitboxes[hitboxIndex];
+        //hitbox.TargetStats.AddRange(hitbox.hitStats);
+        hitbox.ResetHitbox();
+        hitbox.hitDetectedEvent.RemoveListener(DealDamage);
     }
 
     public void DealDamage(){
@@ -107,9 +111,10 @@ public class CharacterCombat : MonoBehaviour
             if(h.enabled){
                 foreach(CharacterStats ch in h.TargetStats){
                     ch.CurrentHealth -= myStats.Attack;
+                    Debug.Log("hit " + ch.gameObject.name);
+                    Destroy(Instantiate(hitParticles, new Vector3(ch.gameObject.transform.position.x, ch.transform.position.y + 1, ch.transform.gameObject.transform.position.z), new Quaternion()), 1.5f);
                 }
-                h.SetStatsAsHit(h.TargetStats);
-                Destroy(Instantiate(hitParticles, new Vector3(h.gameObject.transform.position.x, h.transform.position.y + 1, h.transform.gameObject.transform.position.z), new Quaternion()), 1.5f);
+                h.SetStatsAsHit();
             }
         }
     }
@@ -123,8 +128,13 @@ public class CharacterCombat : MonoBehaviour
         animator.SetBool("Dead", true);
         animator.SetTrigger("DeathEvent");
 
-        movementControls.enabled = false;
-        attackControls.enabled = false;
+        if(movementControls){
+            movementControls.enabled = false;
+        }
+        
+        if(attackControls){
+            attackControls.enabled = false;
+        }
 
         if(cinemachineFreeLook){
             cinemachineFreeLook.enabled = false;

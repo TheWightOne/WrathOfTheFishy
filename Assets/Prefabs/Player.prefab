@@ -237,10 +237,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6789074105437567165}
+  cinemachineFreeLook: {fileID: 0}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 512
   hitParticles: {fileID: 9035450038748687732, guid: 1acb13e18ab5c88468824eff37e858db, type: 3}
+  timeToAttackReset: 1
   hitboxes:
   - {fileID: 2705920586080141585}
 --- !u!114 &1107101849529335834
