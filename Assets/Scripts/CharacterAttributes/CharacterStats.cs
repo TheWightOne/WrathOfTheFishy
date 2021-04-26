@@ -21,6 +21,9 @@ public class CharacterStats : MonoBehaviour
             return currentHealth;
         }
         set{
+            if(!enabled){
+                return;
+            }
             int targetValue = value;
             if(perfectTiming){
                 return;
@@ -33,8 +36,11 @@ public class CharacterStats : MonoBehaviour
             if(value <= 0){
                 currentHealth = 0;
                 DeathEvent.Invoke();
+                enabled = false;
+                return;
             }else{
                 currentHealth = value;
+                return;
             }
         }
     }

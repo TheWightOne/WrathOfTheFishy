@@ -37,7 +37,7 @@ public class CharacterCombat : MonoBehaviour
             movementControls = GetComponent<MovementControls>();
         }if(!attackControls){
             attackControls = GetComponent<AttackControls>();
-        }if(!cinemachineFreeLook){
+        }if(!cinemachineFreeLook && gameObject.name.Equals("Player")){
             GameObject possibleCam = GameObject.Find("Third Person Camera");
             if(possibleCam){
                 cinemachineFreeLook = possibleCam.GetComponent<Cinemachine.CinemachineFreeLook>();
@@ -117,6 +117,7 @@ public class CharacterCombat : MonoBehaviour
                 h.SetStatsAsHit();
             }
         }
+
     }
 
     public void ResetCount(){
@@ -124,7 +125,7 @@ public class CharacterCombat : MonoBehaviour
     }
 
     private void OnDeath(){
-        Debug.Log("We died");
+        Debug.Log(gameObject.name + " died");
         animator.SetBool("Dead", true);
         animator.SetTrigger("DeathEvent");
 

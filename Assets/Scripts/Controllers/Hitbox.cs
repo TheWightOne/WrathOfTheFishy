@@ -40,6 +40,9 @@ public class Hitbox : MonoBehaviour
 
     public void SetStatsAsHit(){
         foreach(CharacterStats cs in targetStats){
+            if(!cs.enabled){
+                continue;
+            }
             hitStats.Add(cs);
         }
         targetStats.Clear();

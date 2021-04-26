@@ -10,6 +10,8 @@ public class AIAgent : MonoBehaviour
     public AIStateID initialState;
     public NavMeshAgent navMeshAgent;
     public AIAgentConfig config;
+
+    private Collider hitbox = null;
     
     void Reset(){
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -23,6 +25,17 @@ public class AIAgent : MonoBehaviour
         stateMachine.ChangeState(initialState);
 
         navMeshAgent.stoppingDistance = config.minDistance;
+
+        hitbox = GetComponent<Collider>();
+
+        GetComponent<CharacterStats>().DeathEvent.AddListener(OnDeath);
+    }
+
+    void OnDeath(){
+        enabled = false;
+        if(hitbox){
+            hitbox.enabled = false;
+        }
     }
 
     // Update is called once per frame
