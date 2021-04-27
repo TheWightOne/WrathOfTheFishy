@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ScrollingText : MonoBehaviour
 {
-    [SerializeField]private RectTransform parentTransform = null;
+    [SerializeField]private float delayTime;
+    [SerializeField]private RectTransform parentTransformToMove = null;
+    [SerializeField]private RectTransform startTransform;
     [SerializeField]private RectTransform endTransform;
     [SerializeField]private float speed = 300f;
 
@@ -36,22 +38,24 @@ public class ScrollingText : MonoBehaviour
 
     #endregion
 
-    void Start(){
+    IEnumerator Start(){
+        parentTransformToMove.position = startTransform.position;
+        yield return new WaitForSeconds(delayTime);
         scrollCoroutine = StartCoroutine(ScrollCor());
     }
 
     private IEnumerator ScrollCor(){
-        Debug.Log("Starting MoveCor!");
-        while(Mathf.Abs((parentTransform.position - endTransform.position).sqrMagnitude) > 0.03f){
+        //Debug.Log("Starting MoveCor!");
+        while(Mathf.Abs((parentTransformToMove.position - endTransform.position).sqrMagnitude) > 0.03f){
             //Debug.Log("Distance between transforms: " + Mathf.Abs((parentTransform.position - endTransform.position).sqrMagnitude) );
 
             yield return new WaitForEndOfFrame();
-            Vector3 oldTransform = parentTransform.position;
+            Vector3 oldTransform = parentTransformToMove.position;
             Vector3 newTransform = oldTransform;
             newTransform.y += Time.deltaTime * speed;
-            parentTransform.position = newTransform;
+            parentTransformToMove.position = newTransform;
         }
-        Debug.Log("Ending MoveCor! Distance between transforms: " + Mathf.Abs((parentTransform.position - endTransform.position).sqrMagnitude) );
+        Debug.Log("Ending MoveCor! Distance between transforms: " + Mathf.Abs((parentTransformToMove.position - endTransform.position).sqrMagnitude) );
         SkipToEnd();
     }
 
@@ -60,9 +64,15 @@ public class ScrollingText : MonoBehaviour
             Debug.Log("Skipping!");
             StopCoroutine(scrollCoroutine);
         }
-        parentTransform.position = endTransform.position;
-        SkipButton.SetActive(false);
-        BackButton.SetActive(true);
+        parentTransformToMove.position = endTransform.position;
+        if(SkipButton){
+            SkipButton.SetActive(false);
+
+        }
+        if(BackButton){
+            BackButton.SetActive(true);
+
+        }
     }
 
     public void ToMainMenu(){
