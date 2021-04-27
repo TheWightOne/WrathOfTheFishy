@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum AIStateID{
-    CHASEPLAYER
+    CHASEPLAYER,
+    ATTACK,
+    DEATH
 }
 public interface AIState
 {

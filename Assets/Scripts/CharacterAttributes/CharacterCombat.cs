@@ -59,6 +59,7 @@ public class CharacterCombat : MonoBehaviour
         }
     }
 
+
     void Attack(CharacterStats targetStats){
         targetStats.CurrentHealth -= myStats.Attack;
     }

@@ -12,10 +12,10 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
-    private int currentHealth;
 
     public bool perfectTiming = false;
     public bool blocking = false;
+    private int currentHealth;
     public int CurrentHealth{
         get{
             return currentHealth;
@@ -33,7 +33,7 @@ public class CharacterStats : MonoBehaviour
             if(currentHealth < 0){
                 return;
             }
-            if(value <= 0){
+            if(targetValue <= 0){
                 currentHealth = 0;
                 DeathEvent.Invoke();
                 enabled = false;

@@ -179,4 +179,9 @@ public class MovementControls : MonoBehaviour
         animator.SetBool("Falling", true);
         jumpCoroutine = null;
     }
+
+    void OnDeath(){
+        enabled = false;
+    }
+
 }

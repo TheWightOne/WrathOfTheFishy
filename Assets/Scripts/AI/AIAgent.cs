@@ -12,6 +12,8 @@ public class AIAgent : MonoBehaviour
     public AIAgentConfig config;
 
     private Collider hitbox = null;
+
+    public CharacterStats myStats;
     
     void Reset(){
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -22,6 +24,7 @@ public class AIAgent : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         stateMachine = new AIStateMachine(this);
         stateMachine.RegisterState(new AIState_ChasePlayer());
+        stateMachine.RegisterState(new AIState_Death());
         stateMachine.ChangeState(initialState);
 
         navMeshAgent.stoppingDistance = config.minDistance;
