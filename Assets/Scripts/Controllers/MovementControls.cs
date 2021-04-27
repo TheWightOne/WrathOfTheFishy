@@ -74,19 +74,6 @@ public class MovementControls : MonoBehaviour
             }
             jumpCoroutine = StartCoroutine(Jump());
         };
-        controls.General.Jump.canceled += _ =>{
-            if(jumpCoroutine != null){
-                //Debug.Log("Stopping coroutine because button was released");
-                StopCoroutine(jumpCoroutine);
-                checkingForGrounded = true;
-                if(velocity.y > 0f){
-                    velocity.y = 0;
-                }
-                animator.SetBool("Falling", true);
-            }else{
-                return;
-            }
-        };
     }
 
     private Coroutine jumpCoroutine = null;

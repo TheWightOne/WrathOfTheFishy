@@ -5,17 +5,10 @@ using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
-    [SerializeField] private CinemachineFreeLook freeLookCamera;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]private AudioClip mainTheme;
+    IEnumerator Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        yield return new WaitForSeconds(.1f);
+        AudioManager.instance.PlayClip(new AudioSet(mainTheme, AudioSet.AudioType.MUSIC), "mainTheme");
     }
 }
