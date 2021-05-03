@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StepHandler : MonoBehaviour
 {
+    public float destroytime;
     [Header("Unity Setup Variables")]
     [SerializeField]private Transform leftFoot = null;
     [SerializeField]private Transform rightFoot = null;
@@ -11,9 +12,9 @@ public class StepHandler : MonoBehaviour
     [SerializeField]private GameObject stepParticle = null;
     public void FootStepEvent(string foot){
         if(foot.Equals("left")){
-            Destroy(Instantiate(stepParticle, leftFoot.position, parentTransform.rotation), 2f);
+            Destroy(Instantiate(stepParticle, leftFoot.position, parentTransform.rotation), destroytime);
         }else{
-            Destroy(Instantiate(stepParticle, rightFoot.position, parentTransform.rotation), 2f);
+            Destroy(Instantiate(stepParticle, rightFoot.position, parentTransform.rotation), destroytime);
         }
         //Debug.Log("Footstep " + foot);
     }
