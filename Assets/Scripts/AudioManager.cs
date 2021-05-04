@@ -50,6 +50,8 @@ public class AudioManager : MonoBehaviour
         sourceToUse.clip = set.clip;
         sourcePool.Remove(sourceToUse);
 
+        StopPersistentClip(persistentName);
+        
         if(persistentName.Equals("")){
             Debug.Log("Adding to main pool");
             sourcePool.Add(sourceToUse);
