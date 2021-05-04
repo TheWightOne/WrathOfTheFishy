@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     IEnumerator Start()
     {
         yield return new WaitForSeconds(.1f);
-        AudioManager.instance.PlayClip(new AudioSet(mainTheme, AudioSet.AudioType.MUSIC), "mainTheme");
+        if(mainTheme){
+            AudioManager.instance.PlayClip(new AudioSet(mainTheme, AudioSet.AudioType.MUSIC), "mainTheme");
+
+        }
     }
 }

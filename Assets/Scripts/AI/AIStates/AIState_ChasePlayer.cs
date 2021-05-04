@@ -5,12 +5,7 @@ using UnityEngine.AI;
 
 public class AIState_ChasePlayer : AIState
 {
-    [SerializeField]private Transform playerTransform = null;
-    public Transform PlayerTransform{
-        set{
-            playerTransform = value;
-        }
-    }
+    
     
     float timer = 0.0f;
     public AIStateID GetID()
@@ -20,9 +15,7 @@ public class AIState_ChasePlayer : AIState
 
     public void Enter(AIAgent agent)
     {
-        if(playerTransform == null){
-            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        }
+        
         agent.navMeshAgent.stoppingDistance = agent.config.minDistance;
     }
 
@@ -39,15 +32,17 @@ public class AIState_ChasePlayer : AIState
 
         timer -= Time.deltaTime;
     if(!agent.navMeshAgent.hasPath){
-        agent.navMeshAgent.destination = playerTransform.position;
+        agent.navMeshAgent.destination = agent.PlayerTransform.position;
     }
 
         if(timer < 0.0f){
-            float distance = (playerTransform.position - agent.navMeshAgent.destination).sqrMagnitude;
+            float distance = (agent.PlayerTransform.position - agent.navMeshAgent.destination).sqrMagnitude;
             if(distance > agent.config.minDistance*agent.config.minDistance){
                 if(agent.navMeshAgent.pathStatus != NavMeshPathStatus.PathPartial){
-                    agent.navMeshAgent.destination = playerTransform.position;
+                    agent.navMeshAgent.destination = agent.PlayerTransform.position;
                 }
+            }else{
+                agent.stateMachine.ChangeState(AIStateID.ATTACK);
             }
             timer = agent.config.maxTime;
             

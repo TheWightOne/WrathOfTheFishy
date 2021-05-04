@@ -70,7 +70,7 @@ public class CharacterCombat : MonoBehaviour
 
         liteAttackCount ++;
         animator.SetInteger("lite_attack_count", liteAttackCount);
-        Debug.Log("liteattack up to " + liteAttackCount);
+        //Debug.Log("liteattack up to " + liteAttackCount);
 
         timeSinceLastAttack = 0f;
     }

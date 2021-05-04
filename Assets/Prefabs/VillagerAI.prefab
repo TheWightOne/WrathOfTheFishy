@@ -1631,6 +1631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5265cabd1c71d664f98d7cd79e19620e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroytime: 0
   leftFoot: {fileID: 8431974055156100118}
   rightFoot: {fileID: 991288288477843325}
   parentTransform: {fileID: 6461756058901599377}
@@ -1686,10 +1687,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 853b951296b76104892a7dbf5b3f9908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialState: 0
+  initialState: 3
   navMeshAgent: {fileID: 5973765742258982428}
   config: {fileID: 11400000, guid: 050d23b6b39098842b851f555da2987d, type: 2}
   myStats: {fileID: 0}
+  combat: {fileID: 0}
+  playerTransform: {fileID: 0}
 --- !u!114 &5973765742258982429
 MonoBehaviour:
   m_ObjectHideFlags: 0
