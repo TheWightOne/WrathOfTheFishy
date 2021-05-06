@@ -16,7 +16,7 @@ public class CharacterCombat : MonoBehaviour
     [SerializeField]private Cinemachine.CinemachineFreeLook cinemachineFreeLook = null;
     //[SerializeField]private Vector3 attackRange = new Vector3(1,1,1);
     //[SerializeField]private Transform attackPoint = null;
-    [SerializeField]private LayerMask enemyLayers = 0;
+    [SerializeField]private string enemyTag = "";
 
     [Header("Prefabs")]
     [SerializeField]private GameObject hitParticles = null;
@@ -49,6 +49,10 @@ public class CharacterCombat : MonoBehaviour
             }
         }
         myStats.DeathEvent.AddListener(OnDeath);
+
+        foreach(Hitbox hitbox in hitboxes){
+            hitbox.enemyTagName = enemyTag;
+        }
     }
 
     void Update(){
@@ -79,6 +83,7 @@ public class CharacterCombat : MonoBehaviour
         
         //Debug.Log("strong attack");
         animator.SetTrigger("Heavy_Attack");
+        timeSinceLastAttack = 0f;
     }
 /*
     void OnDrawGizmosSelected(){
@@ -93,6 +98,7 @@ public class CharacterCombat : MonoBehaviour
 
     //the list of hitboxes the character can use. Animators should be familiar with how to allocate these
     [SerializeField]private List<Hitbox> hitboxes;
+    [SerializeField]private bool debugHitMessages;
 
     public void ActivateHitbox(int hitboxIndex){
         //hitboxes[hitboxIndex].enabled = true;
@@ -112,6 +118,7 @@ public class CharacterCombat : MonoBehaviour
             if(h.enabled){
                 foreach(CharacterStats ch in h.TargetStats){
                     ch.CurrentHealth -= myStats.Attack;
+                    if(debugHitMessages)
                     Debug.Log("hit " + ch.gameObject.name);
                     Destroy(Instantiate(hitParticles, new Vector3(ch.gameObject.transform.position.x, ch.transform.position.y + 1, ch.transform.gameObject.transform.position.z), new Quaternion()), 1.5f);
                 }

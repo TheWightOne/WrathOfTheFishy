@@ -40,7 +40,15 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""id"": ""cde9a80f-6553-415d-9267-5b17eb2fcb4d"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Hold(duration=0.8,pressPoint=0.65)""
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""HeavyAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""6d71f5b0-ab85-4d76-9a0f-80ff29ae5b4f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold""
                 },
                 {
                     ""name"": ""Block"",
@@ -70,6 +78,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""19b0016c-db28-4dc5-ba94-d6c1a2afce9a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""52ee589c-5076-42f7-b5ff-ed1add2feca4"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -211,7 +227,7 @@ public class @Controls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e224355b-572c-4e84-8365-78b5c9e55437"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -238,6 +254,28 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""09ec5a0a-d819-40bc-b542-3cf98426c881"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fd00562c-f08c-45f0-baaa-1c5b2ad63ee9"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HeavyAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -278,10 +316,12 @@ public class @Controls : IInputActionCollection, IDisposable
         m_General_Movement = m_General.FindAction("Movement", throwIfNotFound: true);
         m_General_Sprint = m_General.FindAction("Sprint", throwIfNotFound: true);
         m_General_Attack = m_General.FindAction("Attack", throwIfNotFound: true);
+        m_General_HeavyAttack = m_General.FindAction("HeavyAttack", throwIfNotFound: true);
         m_General_Block = m_General.FindAction("Block", throwIfNotFound: true);
         m_General_Fly = m_General.FindAction("Fly", throwIfNotFound: true);
         m_General_Interact = m_General.FindAction("Interact", throwIfNotFound: true);
         m_General_Jump = m_General.FindAction("Jump", throwIfNotFound: true);
+        m_General_Pause = m_General.FindAction("Pause", throwIfNotFound: true);
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_Look = m_Camera.FindAction("Look", throwIfNotFound: true);
@@ -337,10 +377,12 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_General_Movement;
     private readonly InputAction m_General_Sprint;
     private readonly InputAction m_General_Attack;
+    private readonly InputAction m_General_HeavyAttack;
     private readonly InputAction m_General_Block;
     private readonly InputAction m_General_Fly;
     private readonly InputAction m_General_Interact;
     private readonly InputAction m_General_Jump;
+    private readonly InputAction m_General_Pause;
     public struct GeneralActions
     {
         private @Controls m_Wrapper;
@@ -348,10 +390,12 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Movement => m_Wrapper.m_General_Movement;
         public InputAction @Sprint => m_Wrapper.m_General_Sprint;
         public InputAction @Attack => m_Wrapper.m_General_Attack;
+        public InputAction @HeavyAttack => m_Wrapper.m_General_HeavyAttack;
         public InputAction @Block => m_Wrapper.m_General_Block;
         public InputAction @Fly => m_Wrapper.m_General_Fly;
         public InputAction @Interact => m_Wrapper.m_General_Interact;
         public InputAction @Jump => m_Wrapper.m_General_Jump;
+        public InputAction @Pause => m_Wrapper.m_General_Pause;
         public InputActionMap Get() { return m_Wrapper.m_General; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -370,6 +414,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Attack.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnAttack;
+                @HeavyAttack.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnHeavyAttack;
+                @HeavyAttack.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnHeavyAttack;
+                @HeavyAttack.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnHeavyAttack;
                 @Block.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnBlock;
                 @Block.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnBlock;
                 @Block.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnBlock;
@@ -382,6 +429,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnJump;
+                @Pause.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_GeneralActionsCallbackInterface = instance;
             if (instance != null)
@@ -395,6 +445,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @HeavyAttack.started += instance.OnHeavyAttack;
+                @HeavyAttack.performed += instance.OnHeavyAttack;
+                @HeavyAttack.canceled += instance.OnHeavyAttack;
                 @Block.started += instance.OnBlock;
                 @Block.performed += instance.OnBlock;
                 @Block.canceled += instance.OnBlock;
@@ -407,6 +460,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -449,10 +505,12 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnHeavyAttack(InputAction.CallbackContext context);
         void OnBlock(InputAction.CallbackContext context);
         void OnFly(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface ICameraActions
     {

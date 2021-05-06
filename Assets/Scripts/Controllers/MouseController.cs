@@ -25,4 +25,11 @@ public class MouseController : MonoBehaviour
         //Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
+    void OnEnable(){
+        DisableMouse();
+    }
+
+    void OnDisable(){
+        EnableMouse();
+    }
 }

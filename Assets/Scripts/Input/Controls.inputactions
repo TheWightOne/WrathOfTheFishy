@@ -27,7 +27,15 @@
                     "id": "cde9a80f-6553-415d-9267-5b17eb2fcb4d",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold(duration=0.8,pressPoint=0.65)"
+                    "interactions": ""
+                },
+                {
+                    "name": "HeavyAttack",
+                    "type": "Button",
+                    "id": "6d71f5b0-ab85-4d76-9a0f-80ff29ae5b4f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold"
                 },
                 {
                     "name": "Block",
@@ -57,6 +65,14 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "19b0016c-db28-4dc5-ba94-d6c1a2afce9a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "52ee589c-5076-42f7-b5ff-ed1add2feca4",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -198,7 +214,7 @@
                 {
                     "name": "",
                     "id": "e224355b-572c-4e84-8365-78b5c9e55437",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -225,6 +241,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "09ec5a0a-d819-40bc-b542-3cf98426c881",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fd00562c-f08c-45f0-baaa-1c5b2ad63ee9",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HeavyAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

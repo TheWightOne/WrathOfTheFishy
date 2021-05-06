@@ -15,12 +15,17 @@ public class Hitbox : MonoBehaviour
     //a list containin gthe stats of characters who have already been hit
     private List<CharacterStats> hitStats = new List<CharacterStats>();
 
+    public string enemyTagName;
+
     public UnityEvent hitDetectedEvent;
     void OnTriggerEnter(Collider other){
         CharacterStats newStats;
-
+        Debug.Log(gameObject.name + " collided with " + other.name);
         //processes will not execute if hit enemy is not an enemy, is in the list already, or has already been hit
-        if(other.CompareTag("Enemy") && !targetStats.Contains(newStats = other.GetComponent<CharacterStats>()) && !hitStats.Contains(newStats)){
+        if(!other.CompareTag("Untagged") 
+        && other.CompareTag(enemyTagName) 
+        && !targetStats.Contains(newStats = other.GetComponent<CharacterStats>()) 
+        && !hitStats.Contains(newStats)){
             targetStats.Add(newStats);
             hitDetectedEvent.Invoke();
         }

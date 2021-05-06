@@ -37,7 +37,7 @@ public class AIState_Attack : AIState
     }
 
     IEnumerator AttackCor(AIAgent agent){
-        Debug.Log("Starting Attack!");
+        //Debug.Log("Starting Attack!");
         attacking = true;
         agent.combat.WeakAttack();
         yield return new WaitForSeconds(1f);

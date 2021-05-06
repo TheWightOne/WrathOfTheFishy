@@ -42,25 +42,37 @@ public class AttackControls : MonoBehaviour
             characterCombat = GetComponent<CharacterCombat>();
         }
         controls = new Controls();
-        controls.General.Attack.started += _ => {
+        controls.General.HeavyAttack.started += _ =>{
             attackedWithInput = false;
         };
-        controls.General.Attack.performed += _ => {
+        controls.General.HeavyAttack.performed += _ => {
+
+            Debug.Log("StrongAttack");
+            //return;
             if(isAttacking || attackedWithInput){
                 return;
             }
-            Debug.Log("heavy attack");
+            
+            //Debug.Log("heavy attack");
             characterCombat.StrongAttack();
             attackedWithInput = true;
         };
-        controls.General.Attack.canceled += _ =>{
+        controls.General.Attack.started += _ => {
+            attackedWithInput = false;
+        };
+        controls.General.Attack.performed += _ =>{
+
+            Debug.Log("WeakAttack");
+
+            //return;
             if(isAttacking || attackedWithInput){
                 return;
             }
-            Debug.Log("normal attack");
+            //Debug.Log("normal attack");
             characterCombat.WeakAttack();
             attackedWithInput = true;
         };
+        
     }
 
     /*

@@ -136,8 +136,22 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.28842506
+        functionName: DetectHit
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.67692304
         functionName: HideParticles
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6585798
+        functionName: StopDetectingHit
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

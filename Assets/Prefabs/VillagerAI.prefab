@@ -1496,6 +1496,7 @@ GameObject:
   - component: {fileID: 5973765742258982421}
   - component: {fileID: 5973765742258982420}
   - component: {fileID: 5973765742258982429}
+  - component: {fileID: 4078952815542596393}
   m_Layer: 9
   m_Name: VillagerAI
   m_TagString: Enemy
@@ -1669,12 +1670,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1102511313758916331}
   cinemachineFreeLook: {fileID: 0}
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 0
+  enemyTag: Player
   hitParticles: {fileID: 9035450038748687732, guid: 1acb13e18ab5c88468824eff37e858db, type: 3}
   timeToAttackReset: 1
-  hitboxes: []
+  hitboxes:
+  - {fileID: 7338159953104265304}
 --- !u!114 &5973765742258982420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1690,9 +1690,8 @@ MonoBehaviour:
   initialState: 3
   navMeshAgent: {fileID: 5973765742258982428}
   config: {fileID: 11400000, guid: 050d23b6b39098842b851f555da2987d, type: 2}
-  myStats: {fileID: 0}
-  combat: {fileID: 0}
-  playerTransform: {fileID: 0}
+  myStats: {fileID: 5973765742258982422}
+  combat: {fileID: 5973765742258982421}
 --- !u!114 &5973765742258982429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1709,6 +1708,18 @@ MonoBehaviour:
   - {fileID: 7130901621113935910}
   - {fileID: 7130901621941057427}
   - {fileID: 7130901621800128983}
+--- !u!114 &4078952815542596393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5973765742258982443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01e9448bd510dc447a7531e768029bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6026883142508316754
 GameObject:
   m_ObjectHideFlags: 0
@@ -2094,7 +2105,7 @@ GameObject:
   - component: {fileID: 7338159953104265311}
   - component: {fileID: 7338159953104265305}
   - component: {fileID: 7338159953104265304}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: StandardHitbox (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2126,8 +2137,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.2653265, y: 2.330134, z: 1.580658}
-  m_Center: {x: 0.13352728, y: 0.66506684, z: 0}
+  m_Size: {x: 4.2653265, y: 2.330134, z: 2.4962535}
+  m_Center: {x: 0.13352728, y: 0.66506684, z: 0.45779777}
 --- !u!114 &7338159953104265304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2140,6 +2151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57b79e42a85939a408c5d47ec56b047a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyTagName: 
   hitDetectedEvent:
     m_PersistentCalls:
       m_Calls: []
