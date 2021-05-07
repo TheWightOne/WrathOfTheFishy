@@ -9,9 +9,9 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: gradient_SB
   m_Shader: {fileID: -6465566751694194690, guid: 834576d7c698ea945aa43d4c80e4e5d4, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _SUNDISK_HIGH_QUALITY
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -39,23 +39,58 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _NormalFromTexture_284292A2_Texture_0:
+        m_Texture: {fileID: 2800000, guid: 4f60af522b1bffd448c82b05ca5697e5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalFromTexture_5EC89D75_Texture_0:
+        m_Texture: {fileID: 2800000, guid: c0854fba9d3da6141af2e7faaf63aa3a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_1A099216_Texture_1:
+        m_Texture: {fileID: 2800000, guid: da6d1c049a37b5b408e32b6e83b35910, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_449F5A2E_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 5298047363da8444eafdf40739db9cb7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_BB5E2A8F_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 1ad234fbb1979b745bd28272554a440c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_EF9429F9_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 1d8593335df98074983b3beca9bfc87a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - diffuseA:
+        m_Texture: {fileID: 2800000, guid: 9ed1b3d7b341b5f43880d9d7d861fd4b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - diffuseB:
+        m_Texture: {fileID: 2800000, guid: de097ffe1c68e46459a71f38b00e3c2d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_AA96FC7C: 1.73
     - _AlphaClip: 0
+    - _AtmosphereThickness: 1
     - _Blend: 0
     - _BumpScale: 1
     - _Cull: 2
     - _Cutoff: 0.5
+    - _DiffuseTransition: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
+    - _Exposure: 1.3
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -64,28 +99,33 @@ Material:
     - _OcclusionStrength: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _SkyTransition: 2.08
+    - _SkyTransition: 0.5
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _StarCount: 50
-    - _StarSize: 150
+    - _StarCount: 55.16
+    - _StarSize: 173.5
+    - _SunDisk: 2
+    - _SunSize: 0.04
+    - _SunSizeConvergence: 5
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_4B051971: {r: 0.5886792, g: 0.9917736, b: 1, a: 0}
-    - Color_6F7DAC38: {r: 0.0037735105, g: 0.569802, b: 1, a: 0}
+    - Color_4B051971: {r: 1, g: 0.7038808, b: 0.11698109, a: 0}
+    - Color_6F7DAC38: {r: 0.5283019, g: 0.25671366, b: 0.17643286, a: 0}
     - Color_AFC3C15: {r: 0.7962264, g: 1, b: 0.9891321, a: 0}
     - Color_BD27C0B0: {r: 0.17358488, g: 0.78136283, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BottomColor1: {r: 0.25633827, g: 0.1977572, b: 0.5188679, a: 0}
+    - _BottomColor1: {r: 0.18934253, g: 0.10711995, b: 0.5566038, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _GroundColor: {r: 0.36899996, g: 0.34899998, b: 0.34099993, a: 1}
+    - _SkyTint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Tiling: {r: 8, g: 1, b: 0, a: 0}
-    - _TopColor1: {r: 0, g: 0.5389223, b: 1, a: 0}
+    - _TopColor1: {r: 0.22075468, g: 0.639408, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5163994329459391703
 MonoBehaviour:
