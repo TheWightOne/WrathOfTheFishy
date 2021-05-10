@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2086555419741699291
+--- !u!1 &7191722803646635901
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1937440695402870187}
-  - component: {fileID: 483098172445872680}
-  - component: {fileID: 4216664113561962039}
+  - component: {fileID: 7531691371176871367}
+  - component: {fileID: 6857340595167316578}
+  - component: {fileID: 8705138918217006760}
+  - component: {fileID: 536362025282300918}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: flyTablet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1937440695402870187
+--- !u!4 &7531691371176871367
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2086555419741699291}
+  m_GameObject: {fileID: 7191722803646635901}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.116, z: -0.02528}
-  m_LocalScale: {x: 0.70034, y: 0.70034, z: 0.70034}
+  m_LocalPosition: {x: -30.314, y: 0.078, z: 5.1944}
+  m_LocalScale: {x: 0.35383, y: 0.35383, z: 0.35383}
   m_Children: []
-  m_Father: {fileID: 7683893415412319398}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &483098172445872680
+--- !u!33 &6857340595167316578
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2086555419741699291}
-  m_Mesh: {fileID: 4711208715938537054, guid: 35a52353919199d4197354def2a4db60, type: 3}
---- !u!23 &4216664113561962039
+  m_GameObject: {fileID: 7191722803646635901}
+  m_Mesh: {fileID: 4711208715938537054, guid: dd172b403227a5f418382e1ba8ac8361, type: 3}
+--- !u!23 &8705138918217006760
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2086555419741699291}
+  m_GameObject: {fileID: 7191722803646635901}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -59,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9b411554a9defa141a172b04276a2d80, type: 2}
+  - {fileID: 2100000, guid: c39d95a1d20b9ee4ab71a53167c78e76, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,34 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &7055307683887128092
-GameObject:
+--- !u!65 &536362025282300918
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7683893415412319398}
-  m_Layer: 0
-  m_Name: thundertablet2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7683893415412319398
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7055307683887128092}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.513924, y: 0.03, z: -22.59}
-  m_LocalScale: {x: 0.48167, y: 0.48167, z: 0.48167}
-  m_Children:
-  - {fileID: 1937440695402870187}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 7191722803646635901}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1132374, y: 5.753715, z: 1.7197032}
+  m_Center: {x: -0.06583245, y: 2.5906594, z: -0.3088684}
