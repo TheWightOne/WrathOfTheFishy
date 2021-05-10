@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5245874397582219505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4865794512011919947}
+  - component: {fileID: 8370254098696179182}
+  - component: {fileID: 6038740548206721316}
+  - component: {fileID: 1991285567942263940}
+  - component: {fileID: 2105453405}
+  - component: {fileID: 2105453404}
+  m_Layer: 0
+  m_Name: lore_tablet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4865794512011919947
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5245874397582219505}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -26.907, y: 0.82, z: 4.4}
+  m_LocalScale: {x: 0.30000004, y: 0.3, z: 0.30000004}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &8370254098696179182
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5245874397582219505}
+  m_Mesh: {fileID: 6210184330889327295, guid: b93a2e147998e624082570988c7ac70a, type: 3}
+--- !u!23 &6038740548206721316
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5245874397582219505}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: b6badd6ac58bb0e4f96da1ad40031c8e, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1991285567942263940
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5245874397582219505}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.987055, y: 12.157215, z: 3.0242589}
+  m_Center: {x: 0.26963785, y: 2.392168, z: -1.9408848}
+--- !u!65 &2105453405
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5245874397582219505}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.072873, y: 12.157214, z: 7.1983376}
+  m_Center: {x: 0.27666166, y: 2.3921678, z: -1.3343415}
+--- !u!114 &2105453404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5245874397582219505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a8cf9dd44a3da4185b25bc2b5de2c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToDisplay: Read
+  popupText: "Osywnn\u2019s Life in H\xE4vf\u012Fsk\nLong ago, Oswynn was a farmer
+    living at the seaside village of  H\xE4vf\u012Fsk. Besides fruits and vegetables
+    that were grown, the village consumed fish from the sea.  Fish were considered
+    divine gifts from the ocean god and goddess Aegir and R\xE1n. If one were to
+    not eat the fish, it was viewed as sin for denying their blessing. Oswynn never
+    ate a single fish and was looked down upon by his neighbors, especially by the
+    fishermen. The fishermen had the highest ranking positions in the village and
+    were believed to be messengers of Aegir and R\xE1n, holding the values and expectations
+    the village people were meant to have. Oswynn was considered by them as weak
+    for having a woman\u2019s job and was ridiculed even more for choosing to be
+    the sole vegan in their omnivore society. He understood he would never be admired
+    or praised by the people of H\xE4vf\u012Fsk so he took matters into his own hands.
+    Oswynn packed all of his things and moved to the Forest of Sinnsr\xF8, vowing
+    to himself that he would stay true to his beliefs."

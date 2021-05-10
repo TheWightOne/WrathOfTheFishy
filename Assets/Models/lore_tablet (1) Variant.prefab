@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1910272854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033388803859750447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a8cf9dd44a3da4185b25bc2b5de2c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToDisplay: Read
+  popupText: "Oswynn\u2019s New Life in the Forest of Sinnsr\xF8\nOswynn lived comfortably
+    in his new home and considered the dwellers of the forest as the friends he never
+    had. He always shared food with the creatures and protected them from any hunters
+    that would come by. One night, he was approached by the night goddess Moona,
+    who had noticed all the good deeds he had done to help the animals of Sinnsr\xF8.
+    She suggested that with the kindness Oswynn had in his heart, he could earn a
+    spot in the gods and goddesses\u2019 Hall of Heroes. He doubted himself for a
+    moment but was reassured by Moona that she would help him get stronger.  Ever
+    since then, Osywnn trained every day under the guidance of Moona with the goal
+    to become a true hero and finally be respected by the people of H\xE4vf\u012Fsk."
+--- !u!1001 &5087452795189675742
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2105453404, guid: 4b1f1fcd7f32290429df8e6b7fbfb990, type: 3}
+      propertyPath: popupText
+      value: "Oswynn\u2019s New Life in the Forest of Sinnsr\xF8\nOswynn lived comfortably
+        in his new home and considered the dwellers of the forest as the friends
+        he never had. He always shared food with the creatures and protected them
+        from any hunters that would come by. One night, he was approached by the
+        night goddess Moona, who had noticed all the good deeds he had done to help
+        the animals of Sinnsr\xF8. She suggested that with the kindness Oswynn had
+        in his heart, he could earn a spot in the gods and goddesses\u2019 Hall of
+        Heroes. He doubted himself for a moment but was reassured by Moona that she
+        would help him get stronger.  Ever since then, Osywnn trained every day under
+        the guidance of Moona with the goal to become a true hero and finally be
+        respected by the people of H\xE4vf\u012Fsk."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865794512011919947, guid: 4b1f1fcd7f32290429df8e6b7fbfb990, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -113.97448
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865794512011919947, guid: 4b1f1fcd7f32290429df8e6b7fbfb990, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865794512011919947, guid: 4b1f1fcd7f32290429df8e6b7fbfb990, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.514793
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865794512011919947, guid: 4b1f1fcd7f32290429df8e6b7fbfb990, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865794512011919947, guid: 4b1f1fcd7f32290429df8e6b7fbfb990, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.99999005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865794512011919947, guid: 4b1f1fcd7f32290429df8e6b7fbfb990, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865794512011919947, guid: 4b1f1fcd7f32290429df8e6b7fbfb990, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.0044747926
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865794512011919947, guid: 4b1f1fcd7f32290429df8e6b7fbfb990, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865794512011919947, guid: 4b1f1fcd7f32290429df8e6b7fbfb990, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865794512011919947, guid: 4b1f1fcd7f32290429df8e6b7fbfb990, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -179.487
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865794512011919947, guid: 4b1f1fcd7f32290429df8e6b7fbfb990, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865794512011919947, guid: 4b1f1fcd7f32290429df8e6b7fbfb990, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.30000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865794512011919947, guid: 4b1f1fcd7f32290429df8e6b7fbfb990, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865794512011919947, guid: 4b1f1fcd7f32290429df8e6b7fbfb990, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.30000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245874397582219505, guid: 4b1f1fcd7f32290429df8e6b7fbfb990, type: 3}
+      propertyPath: m_Name
+      value: lore_tablet (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4b1f1fcd7f32290429df8e6b7fbfb990, type: 3}
+--- !u!1 &1033388803859750447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5245874397582219505, guid: 4b1f1fcd7f32290429df8e6b7fbfb990, type: 3}
+  m_PrefabInstance: {fileID: 5087452795189675742}
+  m_PrefabAsset: {fileID: 0}
