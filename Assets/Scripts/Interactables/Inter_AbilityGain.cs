@@ -7,21 +7,23 @@ public class Inter_AbilityGain : Interactable
     public override void Action()
     {
         PlayerInteraction playerInteraction = PlayerInteraction.instance;
+        if(playerInteraction && playerInteraction.abilitySelectionPanel){
+            playerInteraction.abilitySelectionPanel.SetActive(true);
+            MouseController.instance.EnableMouse();
+        }
     }
 
     void Reset(){
         textToDisplay = "Pray";
     }
 
-    // Start is called before the first frame update
-    void Start()
+    protected override void OnTriggerExit(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        PlayerInteraction playerInteraction = PlayerInteraction.instance;
+        if(playerInteraction && playerInteraction.abilitySelectionPanel){
+            playerInteraction.abilitySelectionPanel.SetActive(false);
+        }
+        MouseController.instance.DisableMouse();
+        base.OnTriggerExit(other);
     }
 }

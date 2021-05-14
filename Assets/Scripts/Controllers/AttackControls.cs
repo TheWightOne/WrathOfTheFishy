@@ -21,6 +21,23 @@ public class AttackControls : MonoBehaviour
     
     private CharacterCombat characterCombat = null;
 
+    private bool hasDropAttack = false;
+    private bool hasBigAttack = false;
+
+    public bool HasDropAttack { 
+        get => hasDropAttack;
+        set{
+            hasDropAttack = value;
+            GetComponentInChildren<Animator>().SetBool("DropAttackEnabled", value);
+        } 
+    }
+    public bool HasBigAttack { 
+        get => hasBigAttack;
+        set{
+            hasBigAttack = value;
+            GetComponentInChildren<Animator>().SetBool("BigAttackEnabled", value);
+        } 
+    }
 
     #region - Enable/Disable -  
     void OnEnable(){
@@ -44,9 +61,6 @@ public class AttackControls : MonoBehaviour
         controls = new Controls();
         controls.General.HeavyAttack.started += _ =>{
             attackedWithInput = false;
-        };
-        controls.General.HeavyAttack.performed += _ => {
-
             Debug.Log("StrongAttack");
             //return;
             if(isAttacking || attackedWithInput){
@@ -57,11 +71,13 @@ public class AttackControls : MonoBehaviour
             characterCombat.StrongAttack();
             attackedWithInput = true;
         };
+        controls.General.HeavyAttack.performed += _ => {
+
+        };
         controls.General.Attack.started += _ => {
             attackedWithInput = false;
         };
         controls.General.Attack.performed += _ =>{
-
             Debug.Log("WeakAttack");
 
             //return;
@@ -71,6 +87,7 @@ public class AttackControls : MonoBehaviour
             //Debug.Log("normal attack");
             characterCombat.WeakAttack();
             attackedWithInput = true;
+
         };
         
     }

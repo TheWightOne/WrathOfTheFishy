@@ -14,7 +14,7 @@ public class PlayerInteraction : MonoBehaviour
     
     [HideInInspector]public TextMeshProUGUI text = null;
 
-    public AbilitySelectionPanel abilitySelectionPanel = null;
+    public GameObject abilitySelectionPanel = null;
 
 
 
