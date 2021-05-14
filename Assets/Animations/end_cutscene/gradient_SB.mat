@@ -118,14 +118,14 @@ Material:
     - Color_AFC3C15: {r: 0.7962264, g: 1, b: 0.9891321, a: 0}
     - Color_BD27C0B0: {r: 0.17358488, g: 0.78136283, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BottomColor1: {r: 0.18934253, g: 0.10711995, b: 0.5566038, a: 0}
+    - _BottomColor1: {r: 0.20937876, g: 0.057564955, b: 0.3962264, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GroundColor: {r: 0.36899996, g: 0.34899998, b: 0.34099993, a: 1}
     - _SkyTint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Tiling: {r: 8, g: 1, b: 0, a: 0}
-    - _TopColor1: {r: 0.22075468, g: 0.639408, b: 1, a: 0}
+    - _TopColor1: {r: 0.30309716, g: 0.64279383, b: 0.9339623, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5163994329459391703
 MonoBehaviour:
