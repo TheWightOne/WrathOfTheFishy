@@ -52,7 +52,7 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
-    [HideInInspector]public UnityEvent DeathEvent;
+    public UnityEvent DeathEvent;
 
     void Start(){
         CurrentHealth = MaxHealth;

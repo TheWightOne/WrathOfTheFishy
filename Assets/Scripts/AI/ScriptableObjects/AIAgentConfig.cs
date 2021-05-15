@@ -11,4 +11,11 @@ public class AIAgentConfig : ScriptableObject
     public float maxSightDistance = 5.0f;
 
     public float attackTime = 2f;
+
+    public enum dieType{
+        NORMAL,
+        EVENT
+    }
+
+    public dieType DieType = 0;
 }

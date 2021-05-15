@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: NjordControllerNew
+  m_Controller: {fileID: 9100000, guid: 2d71290df0739b44e9c789dc0514893e, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 8920001066068123839, guid: a0202b27cbd76b4468fa62e8cf36a035, type: 3}
+    m_OverrideClip: {fileID: -6018607967587102102, guid: 992255b2ad07e1c4a99b39c6019ac5ac, type: 3}
+  - m_OriginalClip: {fileID: -3548425023521308586, guid: a0202b27cbd76b4468fa62e8cf36a035, type: 3}
+    m_OverrideClip: {fileID: -4735710577071071142, guid: 349e0f35c91307643b76c460570eefa7, type: 3}
+  - m_OriginalClip: {fileID: -8094666437506728202, guid: a0202b27cbd76b4468fa62e8cf36a035, type: 3}
+    m_OverrideClip: {fileID: 7163978461348433245, guid: 992255b2ad07e1c4a99b39c6019ac5ac, type: 3}

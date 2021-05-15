@@ -61,12 +61,12 @@ public class AttackControls : MonoBehaviour
         controls = new Controls();
         controls.General.HeavyAttack.started += _ =>{
             attackedWithInput = false;
-            Debug.Log("StrongAttack");
             //return;
             if(isAttacking || attackedWithInput){
                 return;
             }
             
+            Debug.Log("StrongAttack");
             //Debug.Log("heavy attack");
             characterCombat.StrongAttack();
             attackedWithInput = true;

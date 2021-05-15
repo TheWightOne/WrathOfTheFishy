@@ -10,7 +10,9 @@ public class AIState_Death : AIState
     public void Enter(AIAgent agent)
     {
         //death logic here, move from health?
-        
+        if(agent.config.DieType == AIAgentConfig.dieType.EVENT){
+            agent.myStats.DeathEvent.Invoke();
+        }
     }
 
     
