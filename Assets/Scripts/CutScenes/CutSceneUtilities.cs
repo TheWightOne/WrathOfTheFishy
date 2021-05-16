@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CutSceneUtilities : MonoBehaviour
 {
@@ -14,5 +15,9 @@ public class CutSceneUtilities : MonoBehaviour
         audioManager.StopPersistentClip("mainTheme");
 
         audioManager.PlayClip(new AudioSet(clipToPlay, AudioSet.AudioType.MUSIC), "mainTheme");
+    }
+
+    public void LoadScene(string sceneName){
+        SceneManager.LoadScene(sceneName);
     }
 }

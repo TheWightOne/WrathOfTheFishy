@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ScrollingText : MonoBehaviour
 {
-    [SerializeField]private float delayTime;
+    [SerializeField]private float delayTime = 0f;
     [SerializeField]private RectTransform parentTransformToMove = null;
     [SerializeField]private RectTransform startTransform;
     [SerializeField]private RectTransform endTransform;
@@ -21,7 +21,7 @@ public class ScrollingText : MonoBehaviour
     void Awake()
     {
         controls = new Controls();
-        controls.General.Attack.performed += _ =>{
+        controls.General.Interact.performed += _ =>{
             SkipButton.SetActive(true);
         }; 
         
@@ -30,29 +30,34 @@ public class ScrollingText : MonoBehaviour
     #region - Enable/Disable -
     void OnEnable(){
         controls.Enable();
+
+        parentTransformToMove.position = startTransform.position;
+        scrollCoroutine = StartCoroutine(ScrollCor());
     }
 
     void OnDisable(){
         controls.Disable();
+
+        if(scrollCoroutine != null){
+            StopCoroutine(scrollCoroutine);
+            scrollCoroutine = null;
+        }
     }
 
     #endregion
 
-    IEnumerator Start(){
-        parentTransformToMove.position = startTransform.position;
-        yield return new WaitForSeconds(delayTime);
-        scrollCoroutine = StartCoroutine(ScrollCor());
-    }
 
     private IEnumerator ScrollCor(){
+        Debug.Log("scroll Cor started!");
+        yield return new WaitForSecondsRealtime(delayTime);
+        Debug.Log("We're past the seconds delay");
         //Debug.Log("Starting MoveCor!");
-        while(Mathf.Abs((parentTransformToMove.position - endTransform.position).sqrMagnitude) > 0.03f){
+        while(Mathf.Abs((parentTransformToMove.position - endTransform.position).sqrMagnitude) > .01f){
             //Debug.Log("Distance between transforms: " + Mathf.Abs((parentTransform.position - endTransform.position).sqrMagnitude) );
 
             yield return new WaitForEndOfFrame();
             Vector3 oldTransform = parentTransformToMove.position;
-            Vector3 newTransform = oldTransform;
-            newTransform.y += Time.deltaTime * speed;
+            Vector3 newTransform = Vector3.MoveTowards(oldTransform, endTransform.position, Time.unscaledDeltaTime * speed);
             parentTransformToMove.position = newTransform;
         }
         Debug.Log("Ending MoveCor! Distance between transforms: " + Mathf.Abs((parentTransformToMove.position - endTransform.position).sqrMagnitude) );
@@ -61,7 +66,7 @@ public class ScrollingText : MonoBehaviour
 
     public void SkipToEnd(){
         if(scrollCoroutine != null){
-            Debug.Log("Skipping!");
+            //Debug.Log("Ending ScrollCor");
             StopCoroutine(scrollCoroutine);
         }
         parentTransformToMove.position = endTransform.position;
@@ -73,9 +78,5 @@ public class ScrollingText : MonoBehaviour
             BackButton.SetActive(true);
 
         }
-    }
-
-    public void ToMainMenu(){
-        SceneManager.LoadScene(0);
     }
 }
