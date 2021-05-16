@@ -17,7 +17,7 @@ public class CutSceneEnter : MonoBehaviour
         }
         this.gameObject.GetComponent<BoxCollider>().enabled = false;
         cutsceneCam.SetActive(true);
-        thePlayer.SetActive(false);
+        //thePlayer.SetActive(false);
         StartCoroutine(FinishCut());
         TimelineObject.SetActive(true);
     }

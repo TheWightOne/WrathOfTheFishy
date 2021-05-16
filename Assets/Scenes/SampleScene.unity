@@ -2922,67 +2922,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 319d2fe34a804e245819465c9505ea59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &674050017
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 674050020}
-  - component: {fileID: 674050019}
-  - component: {fileID: 674050018}
-  m_Layer: 11
-  m_Name: StandardHitbox (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &674050018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 674050017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57b79e42a85939a408c5d47ec56b047a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyTagName: 
-  hitDetectedEvent:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!65 &674050019
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 674050017}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.8576179, y: 2.330134, z: 4.4405184}
-  m_Center: {x: 0.1316762, y: 0.66506684, z: -0.5143337}
---- !u!4 &674050020
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 674050017}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.021, y: 0.292, z: 0.648}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -11107,10 +11046,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4225946295937353130, guid: 447bab050e5a12f4fb9cc42c0aa9cd9d, type: 3}
-      propertyPath: hitboxes.Array.data[0]
-      value: 
-      objectReference: {fileID: 674050018}
     - target: {fileID: 4225946295937353134, guid: 447bab050e5a12f4fb9cc42c0aa9cd9d, type: 3}
       propertyPath: m_Name
       value: Njord_AI
@@ -12363,11 +12298,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7946892633289353097, guid: 575c1c7603540334e8cc0b278ef0d115, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.07380973
+      value: -0.07380969
       objectReference: {fileID: 0}
     - target: {fileID: 7946892633289353097, guid: 575c1c7603540334e8cc0b278ef0d115, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.007748129
+      value: 0.007748124
       objectReference: {fileID: 0}
     - target: {fileID: 7946892633289353097, guid: 575c1c7603540334e8cc0b278ef0d115, type: 3}
       propertyPath: m_LocalRotation.w

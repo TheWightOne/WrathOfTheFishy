@@ -18,6 +18,14 @@ public class AIState_Idle : AIState
 
     public void Update(AIAgent agent)
     {
+        if(!agent.PlayerTransform){
+            GameObject player;
+            if(!(player = GameObject.FindGameObjectWithTag("Player"))){
+                return;
+            }
+            agent.PlayerTransform = player.transform;
+            return;
+        }
         Vector3 playerDirection = agent.PlayerTransform.position - agent.transform.position;
         if(playerDirection.magnitude > agent.config.maxSightDistance){
             return;

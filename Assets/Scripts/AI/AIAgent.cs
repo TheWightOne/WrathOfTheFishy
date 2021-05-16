@@ -36,7 +36,10 @@ public class AIAgent : MonoBehaviour
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
-        PlayerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        GameObject go;
+        if(go = GameObject.FindGameObjectWithTag("Player")){
+            PlayerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        }
         stateMachine = new AIStateMachine(this);
         stateMachine.RegisterState(new AIState_ChasePlayer());
         stateMachine.RegisterState(new AIState_Death());
@@ -45,10 +48,6 @@ public class AIAgent : MonoBehaviour
         stateMachine.ChangeState(initialState);
 
         navMeshAgent.stoppingDistance = config.minDistance;
-
-        if(PlayerTransform == null){
-            PlayerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        }
 
         hitbox = GetComponent<Collider>();
 
