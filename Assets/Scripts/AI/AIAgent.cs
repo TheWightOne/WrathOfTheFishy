@@ -46,6 +46,7 @@ public class AIAgent : MonoBehaviour
         stateMachine.RegisterState(new AIState_Idle());
         stateMachine.RegisterState(new AIState_Attack());
         stateMachine.ChangeState(initialState);
+        Debug.Log(initialState);
 
         navMeshAgent.stoppingDistance = config.minDistance;
 
@@ -69,5 +70,12 @@ public class AIAgent : MonoBehaviour
     void Update()
     {
         stateMachine.Update();
+    }
+
+    public void FindPlayer(){
+        GameObject player;
+        if(player = GameObject.FindGameObjectWithTag("Player")){
+            playerTransform = player.transform;
+        }
     }
 }

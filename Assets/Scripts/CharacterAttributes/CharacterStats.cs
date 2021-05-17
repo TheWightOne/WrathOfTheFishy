@@ -21,25 +21,34 @@ public class CharacterStats : MonoBehaviour
             return currentHealth;
         }
         set{
+            bool lostHealth = value < currentHealth;
             if(!enabled){
                 return;
             }
             int targetValue = value;
             if(perfectTiming){
+                //perfect block, no damage
                 return;
             }else if(blocking){
+                //block, half damage
                 targetValue = currentHealth - ((currentHealth - targetValue)/2);
             }
             if(currentHealth < 0){
+                //already dead, no damage
                 return;
             }
             if(targetValue <= 0){
+                //damage would kill, deal only lethal damage
                 currentHealth = 0;
                 DeathEvent.Invoke();
                 enabled = false;
                 return;
             }else{
-                currentHealth = value;
+                //take full damage
+                currentHealth = targetValue;
+                if(lostHealth){
+                    TakeDamageEvent.Invoke();
+                }
                 return;
             }
         }
@@ -53,6 +62,7 @@ public class CharacterStats : MonoBehaviour
     }
 
     public UnityEvent DeathEvent;
+    public UnityEvent TakeDamageEvent;
 
     void Start(){
         CurrentHealth = MaxHealth;

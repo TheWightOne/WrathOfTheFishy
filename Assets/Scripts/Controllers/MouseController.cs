@@ -17,10 +17,12 @@ public class MouseController : MonoBehaviour
         DisableMouse();
     }
     
+    //allows the player to use their mouse again
     public void EnableMouse(){
         //Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
+    //prevents the player from using their mouse
     public void DisableMouse(){
         //Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;

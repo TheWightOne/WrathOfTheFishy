@@ -30,6 +30,11 @@ public class AIState_ChasePlayer : AIState
             return;
         }
 
+        if(!agent.PlayerTransform){
+            agent.FindPlayer();
+            return;
+        }
+
         timer -= Time.deltaTime;
     if(!agent.navMeshAgent.hasPath){
         agent.navMeshAgent.destination = agent.PlayerTransform.position;
