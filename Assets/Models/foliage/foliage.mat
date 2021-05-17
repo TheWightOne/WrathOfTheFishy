@@ -61,7 +61,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _OcclusionStrength: 0.083
+    - _OcclusionStrength: 0.137
     - _QueueOffset: 0
     - _ReceiveShadows: 0
     - _Smoothness: 0.103
