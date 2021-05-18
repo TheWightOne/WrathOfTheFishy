@@ -28,6 +28,8 @@ public class CharacterCombat : MonoBehaviour
     [SerializeField]private float lightningRadius = 20f;
     [SerializeField]private int lightningAttackPower = 5;
     [SerializeField]private GameObject lightningPrefab = null;
+    [SerializeField]private int boomPower;
+    [SerializeField]private GameObject boomPrefab = null;
 
     void Reset(){
         myStats = GetComponent<CharacterStats>();
@@ -170,5 +172,16 @@ public class CharacterCombat : MonoBehaviour
 
     void OnDrawGizmosSelected(){
         Gizmos.DrawWireSphere(gameObject.transform.position, lightningRadius);
+    }
+
+    public void DoBoom(){
+        Collider[] targets = Physics.OverlapSphere(gameObject.transform.position, lightningRadius/2, enemyLayers);
+        foreach(Collider c in targets){
+            Debug.Log("hit " + c.gameObject.name);
+            c.gameObject.GetComponent<CharacterStats>().CurrentHealth -= boomPower;
+        }
+        if(boomPrefab){
+            Destroy(Instantiate(boomPrefab, gameObject.transform.position, Quaternion.identity), 3);
+        }
     }
 }

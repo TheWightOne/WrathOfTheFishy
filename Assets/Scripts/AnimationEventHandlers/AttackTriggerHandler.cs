@@ -25,4 +25,8 @@ public class AttackTriggerHandler : MonoBehaviour
         Debug.Log("calling lightning");
         combat.LightningAttack();
     }
+
+    public void DoBoom(){
+        combat.DoBoom();
+    }
 }

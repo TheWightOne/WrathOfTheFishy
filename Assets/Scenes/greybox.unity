@@ -8115,7 +8115,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.12847997, y: 0}
   m_AnchorMax: {x: 0.563, y: 0.087000005}
-  m_AnchoredPosition: {x: 0.099975586, y: 0.6410217}
+  m_AnchoredPosition: {x: 0.099975586, y: 0.64105225}
   m_SizeDelta: {x: -0.2000122, y: -0.9215393}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &413286520
@@ -42714,6 +42714,14 @@ PrefabInstance:
       propertyPath: lightningPrefab
       value: 
       objectReference: {fileID: 4808253759260125648, guid: b88b841fdd1487a4d9c3aa79fc054276, type: 3}
+    - target: {fileID: 1107101849529335832, guid: 67d404850cfb5864380577684fa77c40, type: 3}
+      propertyPath: boomPower
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107101849529335832, guid: 67d404850cfb5864380577684fa77c40, type: 3}
+      propertyPath: boomPrefab
+      value: 
+      objectReference: {fileID: 5317385713365705185, guid: 7a0ba8e0ac53d9a4f980006a032c24ef, type: 3}
     - target: {fileID: 1107101849529335834, guid: 67d404850cfb5864380577684fa77c40, type: 3}
       propertyPath: textPanel
       value: 
@@ -53036,7 +53044,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1793425364
 RectTransform:
   m_ObjectHideFlags: 0
