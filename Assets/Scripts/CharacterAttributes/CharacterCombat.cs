@@ -29,6 +29,7 @@ public class CharacterCombat : MonoBehaviour
     [SerializeField]private int lightningAttackPower = 5;
     [SerializeField]private GameObject lightningPrefab = null;
     [SerializeField]private int boomPower;
+    [SerializeField]private Transform boomTransform = null;
     [SerializeField]private GameObject boomPrefab = null;
 
     void Reset(){
@@ -181,7 +182,7 @@ public class CharacterCombat : MonoBehaviour
             c.gameObject.GetComponent<CharacterStats>().CurrentHealth -= boomPower;
         }
         if(boomPrefab){
-            Destroy(Instantiate(boomPrefab, gameObject.transform.position, Quaternion.identity), 3);
+            Destroy(Instantiate(boomPrefab, boomTransform.position, Quaternion.identity), 3);
         }
     }
 }
