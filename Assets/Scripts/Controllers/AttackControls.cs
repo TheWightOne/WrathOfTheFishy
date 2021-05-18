@@ -23,6 +23,7 @@ public class AttackControls : MonoBehaviour
 
     private bool hasDropAttack = false;
     private bool hasBigAttack = false;
+    private bool hasLightningAttack = false;
 
     public bool HasDropAttack { 
         get => hasDropAttack;
@@ -37,6 +38,13 @@ public class AttackControls : MonoBehaviour
             hasBigAttack = value;
             GetComponentInChildren<Animator>().SetBool("BigAttackEnabled", value);
         } 
+    }
+    public bool HasLightningAttack{
+        get=> hasLightningAttack;
+        set{
+            hasLightningAttack = value;
+            GetComponentInChildren<Animator>().SetBool("LightningEnabled", value);
+        }
     }
 
     #region - Enable/Disable -  

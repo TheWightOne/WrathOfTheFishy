@@ -7,17 +7,20 @@ public class AbilitySelectionPanel : MonoBehaviour
 {
     [SerializeField] private Button bigButton = null;
     [SerializeField] private Button dropButton = null;
+    [SerializeField] private Button lightningButton = null;
     AttackControls ac = null;
 
     public enum attackType{
         NONE,
         BIG,
-        DROP
+        DROP,
+        LIGHTNING
     }
     void OnEnable(){
         ac = FindObjectOfType<AttackControls>();
         bigButton.interactable = !ac.HasBigAttack;
         dropButton.interactable = !ac.HasDropAttack;
+        lightningButton.interactable = !ac.HasLightningAttack;
     }
 
 
@@ -31,6 +34,9 @@ public class AbilitySelectionPanel : MonoBehaviour
         }
         if(attackToEnable == (int)attackType.DROP){
             ac.HasDropAttack = true;
+        }
+        if(attackToEnable == (int)attackType.LIGHTNING){
+            ac.HasLightningAttack = true;
         }
     }
 }
