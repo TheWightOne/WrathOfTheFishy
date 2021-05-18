@@ -20,4 +20,9 @@ public class AttackTriggerHandler : MonoBehaviour
     public void ResetCount(){
         combat.ResetCount();
     }
+
+    public void CallLightning(){
+        Debug.Log("calling lightning");
+        combat.LightningAttack();
+    }
 }

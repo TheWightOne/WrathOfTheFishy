@@ -17,13 +17,17 @@ public class CharacterCombat : MonoBehaviour
     //[SerializeField]private Vector3 attackRange = new Vector3(1,1,1);
     //[SerializeField]private Transform attackPoint = null;
     [SerializeField]private string enemyTag = "";
+    [SerializeField]private LayerMask enemyLayers;
 
     [Header("Prefabs")]
     [SerializeField]private GameObject hitParticles = null;
 
     private int liteAttackCount = 0;
     private float timeSinceLastAttack = 0f;
-    [SerializeField]private float timeToAttackReset;
+    [SerializeField]private float timeToAttackReset = 0f;
+    [SerializeField]private float lightningRadius = 20f;
+    [SerializeField]private int lightningAttackPower = 5;
+    [SerializeField]private GameObject lightningPrefab = null;
 
     void Reset(){
         myStats = GetComponent<CharacterStats>();
@@ -150,5 +154,21 @@ public class CharacterCombat : MonoBehaviour
         }
 
 
+    }
+
+    public void LightningAttack(){
+        Collider[] targets = Physics.OverlapSphere(gameObject.transform.position, lightningRadius, enemyLayers);
+        
+        foreach(Collider c in targets){
+            Debug.Log("hit " + c.gameObject.name);
+            c.gameObject.GetComponent<CharacterStats>().CurrentHealth -= lightningAttackPower;
+            if(lightningPrefab){
+                Destroy(Instantiate(lightningPrefab, c.gameObject.transform.position, Quaternion.identity), 2.5f);
+            }
+        }
+    }
+
+    void OnDrawGizmosSelected(){
+        Gizmos.DrawWireSphere(gameObject.transform.position, lightningRadius);
     }
 }
