@@ -1046,6 +1046,7 @@ GameObject:
   - component: {fileID: 1410782540}
   - component: {fileID: 1410782539}
   - component: {fileID: 1410782541}
+  - component: {fileID: 1410782542}
   m_Layer: 5
   m_Name: MainPanel
   m_TagString: Untagged
@@ -1071,7 +1072,7 @@ RectTransform:
   m_Father: {fileID: 1101106542}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: -0.004260959, y: -0.0030041272}
+  m_AnchorMin: {x: -0.0042609787, y: -0.0030041607}
   m_AnchorMax: {x: 1.0010082, y: 0.9963157}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -1096,7 +1097,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d8baaf6df913d7543a591da6e089f476, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6b32825ad64187844988055e2aaccef5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1104,7 +1105,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1410782540
 CanvasRenderer:
@@ -1126,6 +1127,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e391eca95f7a4994f858354fb8071997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1410782542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410782537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b106cd987b9db46a2a205a23a2778f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 6b32825ad64187844988055e2aaccef5, type: 3}
+  - {fileID: 21300000, guid: 3c4699757423edf46a2987609a8910db, type: 3}
+  - {fileID: 21300000, guid: e18cb89e1583c264fb08ea8045d49aa7, type: 3}
+  - {fileID: 21300000, guid: e51d69fc1d7fef742b5b80da569845f7, type: 3}
+  - {fileID: 21300000, guid: d31f905d9f88ea740bd08e653d4071c6, type: 3}
+  - {fileID: 21300000, guid: ac5eeb4918cf3ea428b72f660f7ef756, type: 3}
+  - {fileID: 21300000, guid: be517cba9a205b146b636506122d5581, type: 3}
+  - {fileID: 21300000, guid: 8c209a03c51183443a13f38847bb0686, type: 3}
+  - {fileID: 21300000, guid: 548619d0fe129b44e84e717c4e8f27f3, type: 3}
+  - {fileID: 21300000, guid: 0e12370d715729949b2ab001d8ce8ae0, type: 3}
+  - {fileID: 21300000, guid: 62ec696f7301bbe42a6121649e26aaf0, type: 3}
+  spritePerFrame: 24
+  loop: 1
+  destroyOnEnd: 0
 --- !u!1 &1424843855
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,7 +1338,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.44146523, y: 0.4447119}
   m_AnchorMax: {x: 0.59120065, y: 0.55351305}
-  m_AnchoredPosition: {x: 0, y: -0.0000038146973}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -0.000015258789}
   m_Pivot: {x: 0.5, y: 0.25769916}
 --- !u!114 &1725041465
